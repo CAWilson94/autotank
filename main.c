@@ -9,5 +9,5 @@ int main( void )
   WDTCTL = WDTPW | WDTHOLD; 
   // Testing 
   shoot_5_sec_interval();
-  return 0;
+  for(;;) {}
 }
