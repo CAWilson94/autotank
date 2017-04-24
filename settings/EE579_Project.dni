@@ -35,8 +35,36 @@ ActionState=1
 [Trace1]
 Enabled=0
 ShowSource=1
+[Simulator]
+Freq=1000000
+[Breakpoints]
+Count=0
+[FET]
+Secure Password=
+Extended Clock Control Enable=1
+Advanced Extended Clock Control=0
+Emulation mode=0
+Free running=0
+Shutting Down=3
+[Memory Dump]
+Start address=
+Lenghth=
+Address info=0
+Format=0
+Dump registers=0
+PC=0
+SP=0
+SR=0
+all registers=0
+File name=
+[EEM State Storage]
+Buffer=BAAAAAAADAAAAAAAAAAAAAAA
+[EEM Sequencer]
+Buffer=AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+[EEM Cycle Counter 0]
+Counter0=AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+[EEM Cycle Counter 1]
+Counter1=AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 [Aliases]
 Count=0
 SuppressDialog=0
-[Simulator]
-Freq=1000000
