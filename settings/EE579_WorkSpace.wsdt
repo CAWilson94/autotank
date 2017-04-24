@@ -16,9 +16,15 @@
           <Column3>27</Column3>
         </ColumnWidths>
       </Workspace>
+      <Build>
+        <ColumnWidth0>20</ColumnWidth0>
+        <ColumnWidth1>1107</ColumnWidth1>
+        <ColumnWidth2>295</ColumnWidth2>
+        <ColumnWidth3>73</ColumnWidth3>
+      </Build>
     </Static>
     <Windows>
-      <Wnd1>
+      <Wnd2>
         <Tabs>
           <Tab>
             <Identity>TabID-113-30357</Identity>
@@ -32,7 +38,18 @@
           </Tab>
         </Tabs>
         <SelectedTab>0</SelectedTab>
-      </Wnd1>
+      </Wnd2>
+      <Wnd3>
+        <Tabs>
+          <Tab>
+            <Identity>TabID-2330-31134</Identity>
+            <TabName>Build</TabName>
+            <Factory>Build</Factory>
+            <Session/>
+          </Tab>
+        </Tabs>
+        <SelectedTab>0</SelectedTab>
+      </Wnd3>
     </Windows>
     <Editor>
       <Pane>
@@ -45,8 +62,8 @@
           <SelEnd>0</SelEnd>
           <XPos2>0</XPos2>
           <YPos2>0</YPos2>
-          <SelStart2>144</SelStart2>
-          <SelEnd2>144</SelEnd2>
+          <SelStart2>169</SelStart2>
+          <SelEnd2>169</SelEnd2>
         </Tab>
         <ActiveTab>0</ActiveTab>
       </Pane>
@@ -72,22 +89,22 @@
       <Left>
         <Row0>
           <Sizes>
-            <Wnd1>
+            <Wnd2>
               <Rect>
                 <Top>-2</Top>
                 <Left>-2</Left>
-                <Bottom>736</Bottom>
+                <Bottom>529</Bottom>
                 <Right>198</Right>
                 <x>-2</x>
                 <y>-2</y>
                 <xscreen>200</xscreen>
                 <yscreen>200</yscreen>
-                <sizeHorzCX>130208</sizeHorzCX>
-                <sizeHorzCY>256082</sizeHorzCY>
-                <sizeVertCX>130208</sizeVertCX>
-                <sizeVertCY>944942</sizeVertCY>
+                <sizeHorzCX>261097</sizeHorzCX>
+                <sizeHorzCY>259067</sizeHorzCY>
+                <sizeVertCX>261097</sizeVertCX>
+                <sizeVertCY>687824</sizeVertCY>
               </Rect>
-            </Wnd1>
+            </Wnd2>
           </Sizes>
         </Row0>
       </Left>
@@ -98,7 +115,24 @@
       </Right>
       <Bottom>
         <Row0>
-          <Sizes/>
+          <Sizes>
+            <Wnd3>
+              <Rect>
+                <Top>-2</Top>
+                <Left>-2</Left>
+                <Bottom>198</Bottom>
+                <Right>768</Right>
+                <x>-2</x>
+                <y>-2</y>
+                <xscreen>770</xscreen>
+                <yscreen>200</yscreen>
+                <sizeHorzCX>1005222</sizeHorzCX>
+                <sizeHorzCY>259067</sizeHorzCY>
+                <sizeVertCX>261097</sizeVertCX>
+                <sizeVertCY>259067</sizeVertCY>
+              </Rect>
+            </Wnd3>
+          </Sizes>
         </Row0>
       </Bottom>
       <Float>
