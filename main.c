@@ -8,3 +8,15 @@ int main( void )
   WDTCTL = WDTPW | WDTHOLD; 
   return 0;
 }
+
+void move_forward(){}
+
+void turn_body_right(){}
+
+void turn_body_left(){}
+
+void move_body_backwards(){}
+
+void rotate_body_right(){}
+
+void rotate_body_left(){}
