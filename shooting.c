@@ -3,6 +3,7 @@
 
 /* Shoot every 5 seconds repeatadly
 Can only shoot for 0.2 seconds at a time
+@C.A.Wilson
 */
 void shoot_5_sec_interval()
 {
