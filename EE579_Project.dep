@@ -11,6 +11,7 @@
       <file>$PROJ_DIR$\turret_movement.c</file>
       <file>$PROJ_DIR$\shooting.h</file>
       <file>$PROJ_DIR$\Debug\Obj\turret_movement.pbi</file>
+      <file>$PROJ_DIR$\turret_movement.h</file>
       <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
       <file>$PROJ_DIR$\Debug\Exe\EE579_Project.d43</file>
       <file>$PROJ_DIR$\main.c</file>
@@ -53,7 +54,11 @@
       <inputs>
         <tool>
           <name>BICOMP</name>
-          <file> 30 16 17 23 9 25 10 5 12 27 20 28 22 18</file>
+          <file> 31 17 18 24 10 26 11 6 13 28 21 29 23 19</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 19 31 13 21 17 11 26 29 10 28 6 24 23 18</file>
         </tool>
       </inputs>
     </file>
@@ -62,11 +67,11 @@
       <outputs>
         <tool>
           <name>XLINK</name>
-          <file> 29 6</file>
+          <file> 30 7</file>
         </tool>
         <tool>
           <name>ULP430</name>
-          <file> 14</file>
+          <file> 15</file>
         </tool>
       </outputs>
     </file>
@@ -75,13 +80,13 @@
       <outputs>
         <tool>
           <name>XLINK</name>
-          <file> 29</file>
+          <file> 30</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>XLINK</name>
-          <file> 19 21 13 11</file>
+          <file> 20 22 14 12</file>
         </tool>
       </inputs>
     </file>
@@ -90,21 +95,21 @@
       <outputs>
         <tool>
           <name>BICOMP</name>
-          <file> 15</file>
+          <file> 16</file>
         </tool>
         <tool>
           <name>ICC430</name>
-          <file> 13</file>
+          <file> 14</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>BICOMP</name>
-          <file> 30 16 17 23 9 25 10 5 12 27 20 28 22 18</file>
+          <file> 31 17 18 24 10 26 11 6 13 28 21 29 23 19</file>
         </tool>
         <tool>
           <name>ICC430</name>
-          <file> 8 26 5</file>
+          <file> 9 27 6</file>
         </tool>
       </inputs>
     </file>
