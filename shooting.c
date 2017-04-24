@@ -28,8 +28,8 @@ __interrupt void Timer_A0 (void)
 } 
 
 void config_timer_A(){
-       P1DIR |= (BIT0+BIT6);   // set P1DIR with P0 and P6 to high (1)
-  P1OUT &= ~BIT6;
+  P1DIR |= BIT0;   // set P1DIR with P0 and P6 to high (1)
+ // P1OUT &= ~BIT6;
   P1OUT |= BIT0; 
   P1IES = 0; /* Set INT1 interrupt edge select reg */
   P1IE = BIT2;   /* Set Port 1 interrupt enable reg */

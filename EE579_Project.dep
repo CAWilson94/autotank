@@ -36,6 +36,7 @@
       <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Defaults.h</file>
       <file>$TOOLKIT_DIR$\inc\dlib\c\xencoding_limits.h</file>
       <file>$PROJ_DIR$\movement.c</file>
+      <file>$PROJ_DIR$\movement.h</file>
     </outputs>
     <file>
       <name>$PROJ_DIR$\main.c</name>
