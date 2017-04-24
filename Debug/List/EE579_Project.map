@@ -2,23 +2,25 @@
 #                                                                              #
 #      IAR Universal Linker V6.4.6.89                                          #
 #                                                                              #
-#           Link time     =  24/Apr/2017  09:30:40                             #
+#           Link time     =  24/Apr/2017  11:16:02                             #
 #           Target CPU    =  MSP430                                            #
-#           List file     =  C:\Users\Robbie\Documents\EE579\AutomatedTank\Deb #
-#                            ug\List\EE579_Project.map                         #
-#           Output file 1 =  C:\Users\Robbie\Documents\EE579\AutomatedTank\Deb #
-#                            ug\Exe\EE579_Project.d43                          #
+#           List file     =  C:\Users\charl\tank\AutomatedTank\Debug\List\EE57 #
+#                            9_Project.map                                     #
+#           Output file 1 =  C:\Users\charl\tank\AutomatedTank\Debug\Exe\EE579 #
+#                            _Project.d43                                      #
 #                            Format: ubrof10                                   #
 #                            UBROF version 10.0.6                              #
 #                            Using library modules for C-SPY (-rt)             #
-#           Command line  =  C:\Users\Robbie\Documents\EE579\AutomatedTank\Deb #
-#                            ug\Obj\main.r43                                   #
+#           Command line  =  C:\Users\charl\tank\AutomatedTank\Debug\Obj\main. #
+#                            r43                                               #
+#                            C:\Users\charl\tank\AutomatedTank\Debug\Obj\shoot #
+#                            ing.r43                                           #
 #                            -o                                                #
-#                            C:\Users\Robbie\Documents\EE579\AutomatedTank\Deb #
-#                            ug\Exe\EE579_Project.d43                          #
+#                            C:\Users\charl\tank\AutomatedTank\Debug\Exe\EE579 #
+#                            _Project.d43                                      #
 #                            -l                                                #
-#                            C:\Users\Robbie\Documents\EE579\AutomatedTank\Deb #
-#                            ug\List\EE579_Project.map                         #
+#                            C:\Users\charl\tank\AutomatedTank\Debug\List\EE57 #
+#                            9_Project.map                                     #
 #                            -xms                                              #
 #                            "-IC:\Program Files (x86)\IAR Systems\Embedded Wo #
 #                            rkbench 7.4\430\LIB\"                             #
@@ -61,7 +63,7 @@
                 *                                      *
                 ****************************************
 
-       Program entry at :           C000  Relocatable, from module : ?cstart
+       Program entry at :           C028  Relocatable, from module : ?cstart
 
 
 
@@ -114,7 +116,7 @@ Absolute parts
            _STACK_SIZE             0050 
     *************************************************************************
 
-  FILE NAME : C:\Users\Robbie\Documents\EE579\AutomatedTank\Debug\Obj\main.r43
+  FILE NAME : C:\Users\charl\tank\AutomatedTank\Debug\Obj\main.r43
   PROGRAM MODULE, NAME : main
 
   SEGMENTS IN THE MODULE
@@ -127,11 +129,35 @@ DATA16_AN
            WDTCTL                  0120 
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: C01E - C027 (0xa bytes), align: 1
+  Relative segment, address: D48E - D4A3 (0x16 bytes), align: 1
+  Segment part 4.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           main                    D48E            Segment part 18 (?cstart)
+               calls direct
+    -------------------------------------------------------------------------
+DATA16_C
+  Relative segment, address: C000 - C005 (0x6 bytes), align: 0
+  Segment part 3.             Intra module refs:   main
+
+    *************************************************************************
+
+  FILE NAME : C:\Users\charl\tank\AutomatedTank\Debug\Obj\shooting.r43
+  PROGRAM MODULE, NAME : shooting
+
+  SEGMENTS IN THE MODULE
+  ======================
+<CODE> 1 (was CODE)
+  Relative segment, address: D59C - D5A3 (0x8 bytes), align: 1
   Segment part 3.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           main                    C01E            Segment part 18 (?cstart)
+           shoot_5_sec_interval    D59C            main (main)
+               calls direct
+    -------------------------------------------------------------------------
+DATA16_C
+  Relative segment, address: C006 - C00D (0x8 bytes), align: 0
+  Segment part 2.             Intra module refs:   shoot_5_sec_interval
 
     *************************************************************************
 
@@ -141,11 +167,25 @@ DATA16_AN
   SEGMENTS IN THE MODULE
   ======================
 <CODE> 1 (was CODE)
-  Relative segment, address: C030 - C031 (0x2 bytes), align: 1
+  Relative segment, address: D5AC - D5AD (0x2 bytes), align: 1
   Segment part 2.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           __DebugBreak            C030            __exit (?__exit)
+           __DebugBreak            D5AC            __dwrite (?__dwrite)
+                                                   __exit (?__exit)
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?__dwrite
+
+  SEGMENTS IN THE MODULE
+  ======================
+<CODE> 1 (was CODE)
+  Relative segment, address: D3D0 - D3EF (0x20 bytes), align: 1
+  Segment part 2.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           __dwrite                D3D0            __write (?__write)
+               calls direct
 
     -------------------------------------------------------------------------
   LIBRARY MODULE, NAME : ?__exit
@@ -153,12 +193,25 @@ DATA16_AN
   SEGMENTS IN THE MODULE
   ======================
 <CODE> 1 (was CODE)
-  Relative segment, address: C00C - C01D (0x12 bytes), align: 1
+  Relative segment, address: D52C - D53D (0x12 bytes), align: 1
   Segment part 2.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           __exit                  C00C            Segment part 6 (?_exit)
+           __exit                  D52C            Segment part 6 (?_exit)
                                                    _exit (?_exit)
+               calls direct
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?__write
+
+  SEGMENTS IN THE MODULE
+  ======================
+<CODE> 1 (was CODE)
+  Relative segment, address: D584 - D58F (0xc bytes), align: 1
+  Segment part 2.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           __write                 D584            putchar (?putchar)
                calls direct
 
     -------------------------------------------------------------------------
@@ -167,14 +220,14 @@ DATA16_AN
   SEGMENTS IN THE MODULE
   ======================
 <CODE> 1 (was CODE)
-  Relative segment, address: C028, align: 1
+  Relative segment, address: D5A4, align: 1
   Segment part 0.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           _exit                   C028            exit (?exit)
+           _exit                   D5A4            exit (?exit)
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: C028 - C02B (0x4 bytes), align: 1
+  Relative segment, address: D5A4 - D5A7 (0x4 bytes), align: 1
   Segment part 6.             Intra module refs:   _exit
 
     -------------------------------------------------------------------------
@@ -187,21 +240,21 @@ CSTACK
   Segment part 1.
     -------------------------------------------------------------------------
 CSTART
-  Relative segment, address: C000 - C003 (0x4 bytes), align: 1
+  Relative segment, address: C028 - C02B (0x4 bytes), align: 1
   Segment part 9.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           __program_start         C000            ?reset_vector (?reset_vector)
+           __program_start         C028            ?reset_vector (?reset_vector)
                                                    Absolute parts (?ABS_ENTRY_MOD)
-           ?cstart_begin           C000 
+           ?cstart_begin           C028 
     -------------------------------------------------------------------------
 CSTART
-  Relative segment, address: C004 - C00B (0x8 bytes), align: 1
+  Relative segment, address: C02C - C033 (0x8 bytes), align: 1
   Segment part 18.            Intra module refs:   Segment part 9
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           ?cstart_call_main       C004 
-           ?cstart_end             C00C 
+           ?cstart_call_main       C02C 
+           ?cstart_end             C034 
 
     -------------------------------------------------------------------------
   LIBRARY MODULE, NAME : ?reset_vector
@@ -216,16 +269,554 @@ RESET
            ?reset_vector           FFFE            Segment part 9 (?cstart)
 
     -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?div64i
+
+  SEGMENTS IN THE MODULE
+  ======================
+<CODE> 1 (was CODE)
+  Relative segment, address: CFF6 - D0A5 (0xb0 bytes), align: 1
+  Segment part 2.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _Div64u                 CFF6            _LitobLarge (?xprintflarge)
+    -------------------------------------------------------------------------
+<CODE> 1 (was CODE)
+  Relative segment, address: D442 - D45B (0x1a bytes), align: 1
+  Segment part 4.             Intra module refs:   _Div64u
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?div
+
+  SEGMENTS IN THE MODULE
+  ======================
+<CODE> 1 (was CODE)
+  Relative segment, address: D4A4 - D4B9 (0x16 bytes), align: 1
+  Segment part 0.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           div                     D4A4            _GenldLarge (?xprintflarge)
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?Epilogue
+
+  SEGMENTS IN THE MODULE
+  ======================
+<CODE> 1 (was CODE)
+  Relative segment, address: D53E - D53F (0x2 bytes), align: 1
+  Segment part 2.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ?Epilogue6              D53E            _GenldLarge (?xprintflarge)
+                                                   _LdtobLarge (?xprintflarge)
+                                                   _LitobLarge (?xprintflarge)
+                                                   _PrintfLarge (?xprintflarge)
+    -------------------------------------------------------------------------
+<CODE> 1 (was CODE)
+  Relative segment, address: D540 - D541 (0x2 bytes), align: 1
+  Segment part 3.             Intra module refs:   ?Epilogue6
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ?Epilogue5              D540 
+    -------------------------------------------------------------------------
+<CODE> 1 (was CODE)
+  Relative segment, address: D542 - D543 (0x2 bytes), align: 1
+  Segment part 4.             Intra module refs:   ?Epilogue5
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ?Epilogue4              D542            _PutcharsLarge (?xprintflarge)
+                                                   pad (?xprintflarge)
+    -------------------------------------------------------------------------
+<CODE> 1 (was CODE)
+  Relative segment, address: D544 - D54B (0x8 bytes), align: 1
+  Segment part 5.             Intra module refs:   ?Epilogue4
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ?Epilogue3              D544 
+
+    -------------------------------------------------------------------------
   LIBRARY MODULE, NAME : ?exit
 
   SEGMENTS IN THE MODULE
   ======================
 <CODE> 1 (was CODE)
-  Relative segment, address: C02C - C02F (0x4 bytes), align: 1
+  Relative segment, address: D5A8 - D5AB (0x4 bytes), align: 1
   Segment part 2.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           exit                    C02C            Segment part 18 (?cstart)
+           exit                    D5A8            Segment part 18 (?cstart)
+               calls direct
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?Cast32f32i
+
+  SEGMENTS IN THE MODULE
+  ======================
+<CODE> 1 (was CODE)
+  Relative segment, address: D0A6 - D123 (0x7e bytes), align: 1
+  Segment part 1.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _Cast32uto32f           D0A6            _LdtobLarge (?xprintflarge)
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : _Cast32fto32u
+
+  SEGMENTS IN THE MODULE
+  ======================
+<CODE> 1 (was CODE)
+  Relative segment, address: D590 - D59B (0xc bytes), align: 1
+  Segment part 0.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _Cast32fto32u           D590            _LdtobLarge (?xprintflarge)
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?FLT_Extract
+
+  SEGMENTS IN THE MODULE
+  ======================
+<CODE> 1 (was CODE)
+  Relative segment, address: D176 - D1C1 (0x4c bytes), align: 1
+  Segment part 0.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ?FLT_Extract            D176            _Cast32fto32u (_Cast32fto32u)
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?FLT_LT
+
+  SEGMENTS IN THE MODULE
+  ======================
+<CODE> 1 (was CODE)
+  Relative segment, address: D124 - D175 (0x52 bytes), align: 1
+  Segment part 0.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ?FLT_LT                 D124            _LdtobLarge (?xprintflarge)
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : _Mul32f
+
+  SEGMENTS IN THE MODULE
+  ======================
+<CODE> 1 (was CODE)
+  Relative segment, address: CEE6 - CFF5 (0x110 bytes), align: 1
+  Segment part 0.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _Mul32f                 CEE6            _LdtobLarge (?xprintflarge)
+                                                   scale (?xprintflarge)
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : _Div32f
+
+  SEGMENTS IN THE MODULE
+  ======================
+<CODE> 1 (was CODE)
+  Relative segment, address: CDB6 - CEE5 (0x130 bytes), align: 1
+  Segment part 0.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _Div32f                 CDB6            _LdtobLarge (?xprintflarge)
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : _Add32f
+
+  SEGMENTS IN THE MODULE
+  ======================
+<CODE> 1 (was CODE)
+  Relative segment, address: CC52 - CC55 (0x4 bytes), align: 1
+  Segment part 0.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _Sub32f                 CC52            _LdtobLarge (?xprintflarge)
+    -------------------------------------------------------------------------
+<CODE> 1 (was CODE)
+  Relative segment, address: CC56 - CDB5 (0x160 bytes), align: 1
+  Segment part 1.             Intra module refs:   _Sub32f
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _Add32f                 CC56 
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?Mul816
+
+  SEGMENTS IN THE MODULE
+  ======================
+<CODE> 1 (was CODE)
+  Relative segment, address: D2F6 - D2F9 (0x4 bytes), align: 1
+  Segment part 0.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ?Mul8                   D2F6            _LitobLarge (?xprintflarge)
+    -------------------------------------------------------------------------
+<CODE> 1 (was CODE)
+  Relative segment, address: D2FA - D327 (0x2e bytes), align: 1
+  Segment part 1.             Intra module refs:   ?Mul8
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ?Mul16                  D2FA 
+           ?Mul16to32u             D2FA            ?Mul16to32s (?Mul16to32s)
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?Mul16to32s
+
+  SEGMENTS IN THE MODULE
+  ======================
+<CODE> 1 (was CODE)
+  Relative segment, address: D428 - D441 (0x1a bytes), align: 1
+  Segment part 0.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ?Mul16to32s             D428            _LdtobLarge (?xprintflarge)
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?DivMod816u
+
+  SEGMENTS IN THE MODULE
+  ======================
+<CODE> 1 (was CODE)
+  Relative segment, address: D476 - D48D (0x18 bytes), align: 1
+  Segment part 1.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ?DivMod16u              D476            ?DivMod16s (?DivMod816s)
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?DivMod816s
+
+  SEGMENTS IN THE MODULE
+  ======================
+<CODE> 1 (was CODE)
+  Relative segment, address: D328 - D357 (0x30 bytes), align: 1
+  Segment part 1.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ?DivMod16s              D328            div (?div)
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?DivMod32u
+
+  SEGMENTS IN THE MODULE
+  ======================
+<CODE> 1 (was CODE)
+  Relative segment, address: D288 - D2BF (0x38 bytes), align: 1
+  Segment part 0.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ?DivMod32u              D288            ?DivMod32s (?DivMod32s)
+                                                   _LdtobLarge (?xprintflarge)
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?DivMod32s
+
+  SEGMENTS IN THE MODULE
+  ======================
+<CODE> 1 (was CODE)
+  Relative segment, address: D20A - D249 (0x40 bytes), align: 1
+  Segment part 0.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ?DivMod32s              D20A            _LdtobLarge (?xprintflarge)
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?ShiftRight16u_n
+
+  SEGMENTS IN THE MODULE
+  ======================
+<CODE> 1 (was CODE)
+  Relative segment, address: D45C - D45F (0x4 bytes), align: 1
+  Segment part 0.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ?ShiftRight16u_7        D45C            __iar_Dunscale (?xdunscal)
+    -------------------------------------------------------------------------
+<CODE> 1 (was CODE)
+  Relative segment, address: D460 - D463 (0x4 bytes), align: 1
+  Segment part 1.             Intra module refs:   ?ShiftRight16u_7
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ?ShiftRight16u_6        D460 
+    -------------------------------------------------------------------------
+<CODE> 1 (was CODE)
+  Relative segment, address: D464 - D467 (0x4 bytes), align: 1
+  Segment part 2.             Intra module refs:   ?ShiftRight16u_6
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ?ShiftRight16u_5        D464 
+    -------------------------------------------------------------------------
+<CODE> 1 (was CODE)
+  Relative segment, address: D468 - D46B (0x4 bytes), align: 1
+  Segment part 3.             Intra module refs:   ?ShiftRight16u_5
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ?ShiftRight16u_4        D468 
+    -------------------------------------------------------------------------
+<CODE> 1 (was CODE)
+  Relative segment, address: D46C - D475 (0xa bytes), align: 1
+  Segment part 4.             Intra module refs:   ?ShiftRight16u_4
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ?ShiftRight16u_3        D46C 
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?memchr
+
+  SEGMENTS IN THE MODULE
+  ======================
+<CODE> 1 (was CODE)
+  Relative segment, address: D4CE - D4E1 (0x14 bytes), align: 1
+  Segment part 2.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           __iar_Memchr            D4CE            _PrintfLarge (?xprintflarge)
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?memcpy
+
+  SEGMENTS IN THE MODULE
+  ======================
+<CODE> 1 (was CODE)
+  Relative segment, address: D4F6 - D507 (0x12 bytes), align: 1
+  Segment part 2.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           memcpy                  D4F6            Segment part 11 (?xprintflarge)
+                                                   _GenldLarge (?xprintflarge)
+                                                   _LdtobLarge (?xprintflarge)
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?printf
+
+  SEGMENTS IN THE MODULE
+  ======================
+<CODE> 1 (was CODE)
+  Relative segment, address: D3F0 - D40B (0x1c bytes), align: 1
+  Segment part 2.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           printf                  D3F0            main (main)
+                                                   shoot_5_sec_interval (shooting)
+               calls direct
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?putchar
+
+  SEGMENTS IN THE MODULE
+  ======================
+<CODE> 1 (was CODE)
+  Relative segment, address: D384 - D3AB (0x28 bytes), align: 1
+  Segment part 2.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           putchar                 D384            _Prout (?xprout)
+               calls direct
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?strchr
+
+  SEGMENTS IN THE MODULE
+  ======================
+<CODE> 1 (was CODE)
+  Relative segment, address: D54C - D559 (0xe bytes), align: 1
+  Segment part 2.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           __iar_Strchr            D54C            _PrintfLarge (?xprintflarge)
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?strlen
+
+  SEGMENTS IN THE MODULE
+  ======================
+<CODE> 1 (was CODE)
+  Relative segment, address: D508 - D519 (0x12 bytes), align: 1
+  Segment part 2.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           strlen                  D508            _PrintfLarge (?xprintflarge)
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?xdunscal
+
+  SEGMENTS IN THE MODULE
+  ======================
+<CODE> 1 (was CODE)
+  Relative segment, address: D1C2 - D209 (0x48 bytes), align: 1
+  Segment part 2.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           __iar_Dunscale          D1C2            _LdtobLarge (?xprintflarge)
+               calls direct
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?xprintflarge
+
+  SEGMENTS IN THE MODULE
+  ======================
+<CODE> 1 (was CODE)
+  Relative segment, address: C7DC - CC51 (0x476 bytes), align: 1
+  Segment part 18.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _PrintfLarge            C7DC            printf (?printf)
+               calls direct
+    -------------------------------------------------------------------------
+<CODE> 1 (was CODE)
+  Relative segment, address: D576 - D583 (0xe bytes), align: 1
+  Segment part 22.            Intra module refs:   _PrintfLarge
+    -------------------------------------------------------------------------
+<CODE> 1 (was CODE)
+  Relative segment, address: D4BA - D4BF (0x6 bytes), align: 1
+  Segment part 23.            Intra module refs:   _PrintfLarge
+    -------------------------------------------------------------------------
+<CODE> 1 (was CODE)
+  Relative segment, address: D4C0 - D4CD (0xe bytes), align: 1
+  Segment part 24.            Intra module refs:   Segment part 23
+                                                   _PrintfLarge
+    -------------------------------------------------------------------------
+<CODE> 1 (was CODE)
+  Relative segment, address: D4E2 - D4F5 (0x14 bytes), align: 1
+  Segment part 26.            Intra module refs:   _PrintfLarge
+    -------------------------------------------------------------------------
+<CODE> 1 (was CODE)
+  Relative segment, address: C034 - C0B3 (0x80 bytes), align: 1
+  Segment part 8.             Intra module refs:   _PrintfLarge
+           LOCAL                   ADDRESS         
+           =====                   =======         
+           LoadInt                 C034 
+    -------------------------------------------------------------------------
+<CODE> 1 (was CODE)
+  Relative segment, address: C0B4 - C0C1 (0xe bytes), align: 1
+  Segment part 9.             Intra module refs:   LoadInt
+    -------------------------------------------------------------------------
+<CODE> 1 (was CODE)
+  Relative segment, address: C0C2 - C321 (0x260 bytes), align: 1
+  Segment part 10.            Intra module refs:   _LdtobLarge
+           LOCAL                   ADDRESS         
+           =====                   =======         
+           _GenldLarge             C0C2 
+               calls direct
+    -------------------------------------------------------------------------
+<CODE> 1 (was CODE)
+  Relative segment, address: C322 - C331 (0x10 bytes), align: 1
+  Segment part 11.            Intra module refs:   _GenldLarge
+    -------------------------------------------------------------------------
+<CODE> 1 (was CODE)
+  Relative segment, address: C332 - C34F (0x1e bytes), align: 1
+  Segment part 12.            Intra module refs:   _GenldLarge
+    -------------------------------------------------------------------------
+<CODE> 1 (was CODE)
+  Relative segment, address: C350 - C3A1 (0x52 bytes), align: 1
+  Segment part 13.            Intra module refs:   _LdtobLarge
+           LOCAL                   ADDRESS         
+           =====                   =======         
+           scale                   C350 
+               calls direct
+    -------------------------------------------------------------------------
+<CODE> 1 (was CODE)
+  Relative segment, address: C3A2 - C5F3 (0x252 bytes), align: 1
+  Segment part 14.            Intra module refs:   _PrintfLarge
+           LOCAL                   ADDRESS         
+           =====                   =======         
+           _LdtobLarge             C3A2 
+               calls direct
+    -------------------------------------------------------------------------
+<CODE> 1 (was CODE)
+  Relative segment, address: C5F4 - C7BF (0x1cc bytes), align: 1
+  Segment part 15.            Intra module refs:   _PrintfLarge
+           LOCAL                   ADDRESS         
+           =====                   =======         
+           _LitobLarge             C5F4 
+               calls direct
+    -------------------------------------------------------------------------
+<CODE> 1 (was CODE)
+  Relative segment, address: C7C0 - C7D1 (0x12 bytes), align: 1
+  Segment part 16.            Intra module refs:   _LitobLarge
+    -------------------------------------------------------------------------
+<CODE> 1 (was CODE)
+  Relative segment, address: C7D2 - C7DB (0xa bytes), align: 1
+  Segment part 17.            Intra module refs:   LoadInt
+                                                   _LitobLarge
+                                                   _PrintfLarge
+    -------------------------------------------------------------------------
+<CODE> 1 (was CODE)
+  Relative segment, address: D2C0 - D2F5 (0x36 bytes), align: 1
+  Segment part 27.            Intra module refs:   Segment part 24
+           LOCAL                   ADDRESS         
+           =====                   =======         
+           pad                     D2C0 
+               calls direct
+    -------------------------------------------------------------------------
+<CODE> 1 (was CODE)
+  Relative segment, address: D3AC - D3CF (0x24 bytes), align: 1
+  Segment part 28.            Intra module refs:   _PrintfLarge
+                                                   _PutcharsLarge
+           LOCAL                   ADDRESS         
+           =====                   =======         
+           _PutcharLarge           D3AC 
+               calls indirect
+    -------------------------------------------------------------------------
+<CODE> 1 (was CODE)
+  Relative segment, address: D358 - D383 (0x2c bytes), align: 1
+  Segment part 29.            Intra module refs:   Segment part 22
+                                                   pad
+           LOCAL                   ADDRESS         
+           =====                   =======         
+           _PutcharsLarge          D358 
+               calls direct
+    -------------------------------------------------------------------------
+<CODE> 1 (was CODE)
+  Relative segment, address: D568 - D575 (0xe bytes), align: 1
+  Segment part 19.            Intra module refs:   _PrintfLarge
+    -------------------------------------------------------------------------
+<CODE> 1 (was CODE)
+  Relative segment, address: D55A - D567 (0xe bytes), align: 1
+  Segment part 20.            Intra module refs:   _PrintfLarge
+    -------------------------------------------------------------------------
+<CODE> 1 (was CODE)
+  Relative segment, address: D51A - D52B (0x12 bytes), align: 1
+  Segment part 21.            Intra module refs:   _PrintfLarge
+    -------------------------------------------------------------------------
+<CODE> 1 (was CODE)
+  Relative segment, address: D24A - D287 (0x3e bytes), align: 1
+  Segment part 25.            Intra module refs:   _PrintfLarge
+    -------------------------------------------------------------------------
+DATA16_C
+  Relative segment, address: C00E - C014 (0x7 bytes), align: 0
+  Segment part 2.             Intra module refs:   _PrintfLarge
+    -------------------------------------------------------------------------
+DATA16_C
+  Relative segment, address: C015 - C018 (0x4 bytes), align: 0
+  Segment part 3.             Intra module refs:   _LdtobLarge
+    -------------------------------------------------------------------------
+DATA16_C
+  Relative segment, address: C019 - C01C (0x4 bytes), align: 0
+  Segment part 4.             Intra module refs:   _LdtobLarge
+    -------------------------------------------------------------------------
+DATA16_C
+  Relative segment, address: C01D - C020 (0x4 bytes), align: 0
+  Segment part 5.             Intra module refs:   _LdtobLarge
+    -------------------------------------------------------------------------
+DATA16_C
+  Relative segment, address: C021 - C024 (0x4 bytes), align: 0
+  Segment part 6.             Intra module refs:   _LdtobLarge
+    -------------------------------------------------------------------------
+DATA16_C
+  Relative segment, address: C025 - C026 (0x2 bytes), align: 0
+  Segment part 7.             Intra module refs:   _GenldLarge
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?xprout
+
+  SEGMENTS IN THE MODULE
+  ======================
+<CODE> 1 (was CODE)
+  Relative segment, address: D40C - D427 (0x1c bytes), align: 1
+  Segment part 2.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _Prout                  D40C            printf (?printf)
                calls direct
 
 
@@ -242,8 +833,9 @@ SEGMENT              SPACE    START ADDRESS   END ADDRESS     SIZE  TYPE  ALIGN
 =======              =====    =============   ===========     ====  ====  =====
 DATA16_AN                              0120 - 0121               2   rel    0
 CSTACK                                 03B0 - 03FF              50   rel    1
-CSTART                                 C000 - C00B               C   rel    1
-<CODE> 1                               C00C - C031              26   rel    1
+DATA16_C                               C000 - C026              27   rel    0
+CSTART                                 C028 - C033               C   rel    1
+<CODE> 1                               C034 - D5AD            157A   rel    1
 RESET                                  FFFE - FFFF               2   rel    1
 
                 ****************************************
@@ -252,8 +844,9 @@ RESET                                  FFFE - FFFF               2   rel    1
                 *                                      *
                 ****************************************
 
- 52 bytes of CODE memory
- 80 bytes of DATA memory (+ 2 absolute )
+ 5 512 bytes of CODE  memory
+    80 bytes of DATA  memory (+ 2 absolute )
+    39 bytes of CONST memory
 
 Errors: none
 Warnings: none
