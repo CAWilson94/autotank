@@ -9,8 +9,9 @@ int main( void )
   WDTCTL = WDTPW | WDTHOLD; 
   // Testing 
   // shoot_5_sec_interval();
-  config_timer_A();
-  for(;;){
-    
+  config_pins();
+//  config_timer_A();
+  __enable_interrupt();
+  for(;;){   
   }
 }
