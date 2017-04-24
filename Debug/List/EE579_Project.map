@@ -2,7 +2,7 @@
 #                                                                              #
 #      IAR Universal Linker V6.4.6.89                                          #
 #                                                                              #
-#           Link time     =  24/Apr/2017  09:30:40                             #
+#           Link time     =  24/Apr/2017  10:54:09                             #
 #           Target CPU    =  MSP430                                            #
 #           List file     =  C:\Users\Robbie\Documents\EE579\AutomatedTank\Deb #
 #                            ug\List\EE579_Project.map                         #
@@ -13,6 +13,8 @@
 #                            Using library modules for C-SPY (-rt)             #
 #           Command line  =  C:\Users\Robbie\Documents\EE579\AutomatedTank\Deb #
 #                            ug\Obj\main.r43                                   #
+#                            C:\Users\Robbie\Documents\EE579\AutomatedTank\Deb #
+#                            ug\Obj\movement.r43                               #
 #                            -o                                                #
 #                            C:\Users\Robbie\Documents\EE579\AutomatedTank\Deb #
 #                            ug\Exe\EE579_Project.d43                          #
@@ -133,6 +135,9 @@ DATA16_AN
            =====                   =======         ======
            main                    C01E            Segment part 18 (?cstart)
 
+    *************************************************************************
+
+  FILE NAME : C:\Users\Robbie\Documents\EE579\AutomatedTank\Debug\Obj\movement.r43
     *************************************************************************
 
   FILE NAME : C:\Program Files (x86)\IAR Systems\Embedded Workbench 7.4\430\lib\dlib\dl430fn.r43
