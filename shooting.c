@@ -38,7 +38,7 @@ __interrupt void sw_int(void)
   P1IFG &= ~BUTTON;
 }
 
-int counter_attack()
+void counter_attack()
 {
   P1OUT ^= LED0;
   return 1;

@@ -7,4 +7,4 @@ Header files for shooting.c
 void shoot_5_sec_interval();
 void config_pins();
 void config_timer_A();
-int counter_attack();
+void counter_attack();
