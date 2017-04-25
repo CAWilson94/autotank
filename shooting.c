@@ -19,6 +19,9 @@ Timer
 unsigned int flag = 0;
 unsigned int timerCount = 0;
 
+unsigned int waiting_to_shoot = 0;
+unsigned int shooting_time = 0;
+
 // Configure timer
 void ConfigTimerA(unsigned int delayCycles)
 {
@@ -58,7 +61,7 @@ void shoot_5_sec_interval()
     if (flag==1)
     {
       P1OUT ^= LED_1;
-     __delay_cycles(6400);
+     __delay_cycles(6400);/* Stops the code & waits for 6400 cycles to pass*/
      P1OUT ^= LED_1;
       flag =0;
     }
