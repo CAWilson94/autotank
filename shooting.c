@@ -34,6 +34,7 @@ __interrupt void Timer_A (void)
   if(timerCount >5)
   {
   P1OUT ^= LED_1;
+ 
   timerCount=0;
   }
 }
@@ -46,7 +47,7 @@ void shoot_5_sec_interval()
   
   P1IES = 0; /* Set INT1 interrupt edge select reg */
   P1IE =INTERRUPT; /* Set Port 1 interrupt enable reg */
-  P1IFG &~INTERRUPT;
+  P1IFG &= ~INTERRUPT;
   
   //ConfigTimerA(32000000); 
   ConfigTimerA(32000);
