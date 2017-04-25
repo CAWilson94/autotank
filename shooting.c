@@ -48,7 +48,7 @@ __interrupt void Timer_A (void)
 void shoot_5_sec_interval()
 {
   LED_DIR |= LED_1; /*Set P1.0 to output direction*/
-  // LED_OUT &= ~LED_1; /* Set LED off */
+  LED_OUT &= ~LED_1; /* Set LED off */
   
   P1IES = 0; /* Set INT1 interrupt edge select reg */
   P1IE =INTERRUPT; /* Set Port 1 interrupt enable reg */
