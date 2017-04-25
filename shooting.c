@@ -23,7 +23,7 @@ void config_pins(){
   P1OUT &= BIT3;
   P1IES = 0; /* Set INT1 interrupt edge select reg */
   P1IE = BIT3;   /* Set Port 1 interrupt enable reg */
-  //P1IFG &= ~BIT3; //clear interrupt 
+  P1IFG &= ~BIT3; //clear interrupt 
 }
 
 
@@ -31,7 +31,8 @@ void config_pins(){
 #pragma vector=PORT1_VECTOR
 __interrupt void sw_int(void)
 {
-  P1OUT |= BIT0;
+  P1OUT ^= BIT0;
+  P1IFG &= ~BIT3;
 }
 
 
