@@ -22,7 +22,7 @@ void shoot_5_sec_interval()
 void config_pins(){
   P1DIR |= LED0;   // set P1DIR with P0 to high (1)
   P1DIR &= ~BUTTON; //set P1.3 (Switch 2) as input
-  P1OUT &= ~LED0; //turn led on
+  P1OUT &= ~LED0; //turn led off
   P1REN |= BUTTON; 
   P1OUT &= BUTTON;
   P1IES = 0; /* Set INT1 interrupt edge select reg */
@@ -34,12 +34,7 @@ void config_pins(){
 #pragma vector=PORT1_VECTOR
 __interrupt void sw_int(void)
 {
- int i = counter_attack();
+  P1OUT ^= LED0;
   P1IFG &= ~BUTTON;
 }
 
-void counter_attack()
-{
-  P1OUT ^= LED0;
-  return 1;
-}
