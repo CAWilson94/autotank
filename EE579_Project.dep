@@ -44,6 +44,10 @@
           <file> 25</file>
         </tool>
         <tool>
+          <name>ICC430</name>
+          <file> 20</file>
+        </tool>
+        <tool>
           <name>__cstat</name>
           <file> 13</file>
         </tool>

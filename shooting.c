@@ -1,5 +1,6 @@
 #include <msp430.h>
 #include <stdio.h>
+#include <intrinsics.h>
 
 /* Shoot every 5 seconds repeatadly
 Can only shoot for 0.2 seconds at a time
@@ -14,6 +15,8 @@ Timer
 #define LED_OUT P1OUT /* Port 1 output */
 #define LED_DIR P1DIR /* Port 1 direction */ 
 
+
+unsigned int flag = 0;
 unsigned int timerCount = 0;
 
 // Configure timer
@@ -33,9 +36,8 @@ __interrupt void Timer_A (void)
   timerCount++;
   if(timerCount >5)
   {
-  P1OUT ^= LED_1;
- 
-  timerCount=0;
+    flag =1;
+    timerCount=0;
   }
 }
 
@@ -49,9 +51,20 @@ void shoot_5_sec_interval()
   P1IE =INTERRUPT; /* Set Port 1 interrupt enable reg */
   P1IFG &= ~INTERRUPT;
   
-  //ConfigTimerA(32000000); 
   ConfigTimerA(32000);
   __enable_interrupt();/* Loop and wait for interrupt */
+  while(1)
+  {
+    if (flag==1)
+    {
+      P1OUT ^= LED_1;
+     __delay_cycles(6400);
+     P1OUT ^= LED_1;
+      flag =0;
+    }
+    
+  }
+  
   
 }
 
