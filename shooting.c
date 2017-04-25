@@ -29,14 +29,13 @@ void ConfigTimerA(unsigned int delayCycles)
 // Timer A0 interrupt service routine
 #pragma vector=TIMER0_A0_VECTOR
 __interrupt void Timer_A (void)
-{
-  
-  P1OUT ^= LED_1;
-  if(timerCount >100)
-  {
-    timerCount = 0;
-  }
+{  
   timerCount++;
+  if(timerCount >5)
+  {
+  P1OUT ^= LED_1;
+  timerCount=0;
+  }
 }
 
 // Shoot every five seconds
@@ -49,8 +48,8 @@ void shoot_5_sec_interval()
   P1IE =INTERRUPT; /* Set Port 1 interrupt enable reg */
   P1IFG &~INTERRUPT;
   
-  ConfigTimerA(5000); /* May need more than one timer or interrupt to count as
-                         slow as every 5 seconds*/
+  //ConfigTimerA(32000000); 
+  ConfigTimerA(32000);
   __enable_interrupt();/* Loop and wait for interrupt */
   
 }
