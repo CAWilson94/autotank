@@ -6,7 +6,9 @@
 int main( void )
 {
   // Stop watchdog timer to prevent time out reset
-  WDTCTL = WDTPW | WDTHOLD; 
-  return 0;
+  WDTCTL = WDTPW | WDTHOLD;
+  configure_pins();
+  __enable_interrupt();
+  for(;;){}
 }
 

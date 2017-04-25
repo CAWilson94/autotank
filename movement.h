@@ -1,6 +1,7 @@
 #include <msp430.h>
 
 /*Movement Header File*/
+void configure_pins();
 void move_body_forward();
 void move_body_backwards();
 void turn_body_right(double);
