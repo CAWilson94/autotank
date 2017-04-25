@@ -2,7 +2,7 @@
 #                                                                              #
 #      IAR Universal Linker V6.4.6.89                                          #
 #                                                                              #
-#           Link time     =  25/Apr/2017  13:56:04                             #
+#           Link time     =  25/Apr/2017  14:43:48                             #
 #           Target CPU    =  MSP430                                            #
 #           List file     =  C:\Users\Robbie\Documents\EE579\AutomatedTank\Deb #
 #                            ug\List\EE579_Project.map                         #
@@ -129,11 +129,11 @@ DATA16_AN
            WDTCTL                  0120 
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: C040 - C04D (0xe bytes), align: 1
+  Relative segment, address: C04E - C05B (0xe bytes), align: 1
   Segment part 3.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           main                    C040            Segment part 18 (?cstart)
+           main                    C04E            Segment part 18 (?cstart)
                calls direct
 
     *************************************************************************
@@ -146,7 +146,7 @@ DATA16_AN
 DATA16_AN
   Relative segment, address: 0021 - 0021 (0x1 bytes), align: 0
   Segment part 1. ROOT        Intra module refs:   config_pins
-                                                   sw_int
+                                                   counter_attack
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            P1OUT                   0021 
@@ -195,12 +195,20 @@ DATA16_AN
            config_pins             C00C            main (main)
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: C04E - C057 (0xa bytes), align: 1
-  Segment part 12.            Intra module refs:   sw_int::??INTVEC 4
+  Relative segment, address: C040 - C04D (0xe bytes), align: 1
+  Segment part 13.            Intra module refs:   sw_int::??INTVEC 4
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           sw_int                  C04E 
+           sw_int                  C040 
                interrupt function
+               calls direct
+    -------------------------------------------------------------------------
+<CODE> 1 (was CODE)
+  Relative segment, address: C05C - C063 (0x8 bytes), align: 1
+  Segment part 12.            Intra module refs:   sw_int
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           counter_attack          C05C 
     -------------------------------------------------------------------------
 INTVEC
   Common segment, address: FFE0 - FFE5 (0x6 bytes), align: 1
@@ -217,11 +225,11 @@ INTVEC
   SEGMENTS IN THE MODULE
   ======================
 <CODE> 1 (was CODE)
-  Relative segment, address: C060 - C061 (0x2 bytes), align: 1
+  Relative segment, address: C06C - C06D (0x2 bytes), align: 1
   Segment part 2.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           __DebugBreak            C060            __exit (?__exit)
+           __DebugBreak            C06C            __exit (?__exit)
 
     -------------------------------------------------------------------------
   LIBRARY MODULE, NAME : ?__exit
@@ -243,14 +251,14 @@ INTVEC
   SEGMENTS IN THE MODULE
   ======================
 <CODE> 1 (was CODE)
-  Relative segment, address: C058, align: 1
+  Relative segment, address: C064, align: 1
   Segment part 0.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           _exit                   C058            exit (?exit)
+           _exit                   C064            exit (?exit)
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: C058 - C05B (0x4 bytes), align: 1
+  Relative segment, address: C064 - C067 (0x4 bytes), align: 1
   Segment part 6.             Intra module refs:   _exit
 
     -------------------------------------------------------------------------
@@ -297,11 +305,11 @@ RESET
   SEGMENTS IN THE MODULE
   ======================
 <CODE> 1 (was CODE)
-  Relative segment, address: C05C - C05F (0x4 bytes), align: 1
+  Relative segment, address: C068 - C06B (0x4 bytes), align: 1
   Segment part 2.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           exit                    C05C            Segment part 18 (?cstart)
+           exit                    C068            Segment part 18 (?cstart)
                calls direct
 
 
@@ -321,7 +329,7 @@ DATA16_AN                              0021 - 0025               5   rel    0
                                        0120 - 0121               2 
 CSTACK                                 03B0 - 03FF              50   rel    1
 CSTART                                 C000 - C00B               C   rel    1
-<CODE> 1                               C00C - C061              56   rel    1
+<CODE> 1                               C00C - C06D              62   rel    1
 INTVEC                                 FFE0 - FFE5               6   com    1
 RESET                                  FFFE - FFFF               2   rel    1
 
@@ -331,7 +339,7 @@ RESET                                  FFFE - FFFF               2   rel    1
                 *                                      *
                 ****************************************
 
- 106 bytes of CODE memory
+ 118 bytes of CODE memory
   80 bytes of DATA memory (+ 8 absolute )
 
 Errors: none
