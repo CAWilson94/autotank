@@ -52,8 +52,8 @@ void shoot_5_sec_interval()
   LED_OUT &= ~LED_1; /* Set LED off */
   
   P1IES = 0; /* Set INT1 interrupt edge select reg */
-  P1IE =INTERRUPT; /* Set Port 1 interrupt enable reg */
-  P1IFG &= ~INTERRUPT;
+  P1IE =( INTERRUPT + BUTTON); /* Set Port 1 interrupt enable reg */
+  P1IFG &= ~(INTERRUPT + BUTTON);
   
   ConfigTimerA(32000);
   __enable_interrupt();/* Loop and wait for interrupt */
