@@ -7,13 +7,20 @@ void mid_point()
 {
 
 }
-// Move turret left n degrees
-void move_left(double degrees_left)
+// Move turret left 
+void rotate_left()
 {
 
 }
-// Move turret right n degrees
-void move_right(double degrees_right)
+// Move turret right 
+void rotate_right()
 {
 
 }
+
+// Move turret back 
+void rotate_back()
+{
+
+}
+

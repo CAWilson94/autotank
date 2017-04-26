@@ -2,7 +2,7 @@
 #                                                                              #
 #      IAR Universal Linker V6.4.6.89                                          #
 #                                                                              #
-#           Link time     =  24/Apr/2017  09:30:40                             #
+#           Link time     =  25/Apr/2017  16:24:28                             #
 #           Target CPU    =  MSP430                                            #
 #           List file     =  C:\Users\Robbie\Documents\EE579\AutomatedTank\Deb #
 #                            ug\List\EE579_Project.map                         #
@@ -13,6 +13,8 @@
 #                            Using library modules for C-SPY (-rt)             #
 #           Command line  =  C:\Users\Robbie\Documents\EE579\AutomatedTank\Deb #
 #                            ug\Obj\main.r43                                   #
+#                            C:\Users\Robbie\Documents\EE579\AutomatedTank\Deb #
+#                            ug\Obj\turret_movement.r43                        #
 #                            -o                                                #
 #                            C:\Users\Robbie\Documents\EE579\AutomatedTank\Deb #
 #                            ug\Exe\EE579_Project.d43                          #
@@ -120,19 +122,36 @@ Absolute parts
   SEGMENTS IN THE MODULE
   ======================
 DATA16_AN
-  Relative segment, address: 0120 - 0121 (0x2 bytes), align: 0
+  Relative segment, address: 0020 - 0020 (0x1 bytes), align: 0
   Segment part 1. ROOT        Intra module refs:   main
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           P1IN                    0020 
+    -------------------------------------------------------------------------
+DATA16_AN
+  Relative segment, address: 0022 - 0022 (0x1 bytes), align: 0
+  Segment part 2. ROOT        Intra module refs:   main
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           P1DIR                   0022 
+    -------------------------------------------------------------------------
+DATA16_AN
+  Relative segment, address: 0120 - 0121 (0x2 bytes), align: 0
+  Segment part 3. ROOT        Intra module refs:   main
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            WDTCTL                  0120 
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: C01E - C027 (0xa bytes), align: 1
-  Segment part 3.
+  Relative segment, address: C00C - C02D (0x22 bytes), align: 1
+  Segment part 5.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           main                    C01E            Segment part 18 (?cstart)
+           main                    C00C            Segment part 18 (?cstart)
 
+    *************************************************************************
+
+  FILE NAME : C:\Users\Robbie\Documents\EE579\AutomatedTank\Debug\Obj\turret_movement.r43
     *************************************************************************
 
   FILE NAME : C:\Program Files (x86)\IAR Systems\Embedded Workbench 7.4\430\lib\dlib\dl430fn.r43
@@ -141,11 +160,11 @@ DATA16_AN
   SEGMENTS IN THE MODULE
   ======================
 <CODE> 1 (was CODE)
-  Relative segment, address: C030 - C031 (0x2 bytes), align: 1
+  Relative segment, address: C048 - C049 (0x2 bytes), align: 1
   Segment part 2.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           __DebugBreak            C030            __exit (?__exit)
+           __DebugBreak            C048            __exit (?__exit)
 
     -------------------------------------------------------------------------
   LIBRARY MODULE, NAME : ?__exit
@@ -153,11 +172,11 @@ DATA16_AN
   SEGMENTS IN THE MODULE
   ======================
 <CODE> 1 (was CODE)
-  Relative segment, address: C00C - C01D (0x12 bytes), align: 1
+  Relative segment, address: C02E - C03F (0x12 bytes), align: 1
   Segment part 2.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           __exit                  C00C            Segment part 6 (?_exit)
+           __exit                  C02E            Segment part 6 (?_exit)
                                                    _exit (?_exit)
                calls direct
 
@@ -167,14 +186,14 @@ DATA16_AN
   SEGMENTS IN THE MODULE
   ======================
 <CODE> 1 (was CODE)
-  Relative segment, address: C028, align: 1
+  Relative segment, address: C040, align: 1
   Segment part 0.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           _exit                   C028            exit (?exit)
+           _exit                   C040            exit (?exit)
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: C028 - C02B (0x4 bytes), align: 1
+  Relative segment, address: C040 - C043 (0x4 bytes), align: 1
   Segment part 6.             Intra module refs:   _exit
 
     -------------------------------------------------------------------------
@@ -221,11 +240,11 @@ RESET
   SEGMENTS IN THE MODULE
   ======================
 <CODE> 1 (was CODE)
-  Relative segment, address: C02C - C02F (0x4 bytes), align: 1
+  Relative segment, address: C044 - C047 (0x4 bytes), align: 1
   Segment part 2.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           exit                    C02C            Segment part 18 (?cstart)
+           exit                    C044            Segment part 18 (?cstart)
                calls direct
 
 
@@ -240,10 +259,12 @@ RESET
 
 SEGMENT              SPACE    START ADDRESS   END ADDRESS     SIZE  TYPE  ALIGN
 =======              =====    =============   ===========     ====  ====  =====
-DATA16_AN                              0120 - 0121               2   rel    0
+DATA16_AN                              0020 - 0020               1   rel    0
+                                       0022 - 0022               1 
+                                       0120 - 0121               2 
 CSTACK                                 03B0 - 03FF              50   rel    1
 CSTART                                 C000 - C00B               C   rel    1
-<CODE> 1                               C00C - C031              26   rel    1
+<CODE> 1                               C00C - C049              3E   rel    1
 RESET                                  FFFE - FFFF               2   rel    1
 
                 ****************************************
@@ -252,8 +273,8 @@ RESET                                  FFFE - FFFF               2   rel    1
                 *                                      *
                 ****************************************
 
- 52 bytes of CODE memory
- 80 bytes of DATA memory (+ 2 absolute )
+ 76 bytes of CODE memory
+ 80 bytes of DATA memory (+ 4 absolute )
 
 Errors: none
 Warnings: none

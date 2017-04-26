@@ -2264,6 +2264,9 @@
   <file>
     <name>$PROJ_DIR$\turret_movement.c</name>
   </file>
+  <file>
+    <name>$PROJ_DIR$\turret_movement.h</name>
+  </file>
 </project>
 
 
