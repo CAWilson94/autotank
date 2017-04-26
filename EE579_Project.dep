@@ -6,61 +6,46 @@
   <configuration>
     <name>Debug</name>
     <outputs>
-      <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Threads.h</file>
-      <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Product.h</file>
-      <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Defaults.h</file>
-      <file>$TOOLKIT_DIR$\inc\dlib\c\ysizet.h</file>
-      <file>$TOOLKIT_DIR$\lib\dlib\dl430fn.h</file>
-      <file>$TOOLKIT_DIR$\inc\dlib\c\yvals.h</file>
-      <file>$TOOLKIT_DIR$\inc\msp430.h</file>
-      <file>$TOOLKIT_DIR$\inc\msp430g2553.h</file>
-      <file>$TOOLKIT_DIR$\inc\dlib\c\stdio.h</file>
-      <file>$PROJ_DIR$\Debug\Exe\EE579_Project.d43</file>
-      <file>$TOOLKIT_DIR$\inc\in430.h</file>
-      <file>$TOOLKIT_DIR$\inc\dlib\c\ystdio.h</file>
-      <file>$TOOLKIT_DIR$\inc\dlib\c\xencoding_limits.h</file>
-      <file>$TOOLKIT_DIR$\inc\dlib\c\ycheck.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\movement.__cstat.et</file>
-      <file>$PROJ_DIR$\Debug\Obj\main.__cstat.et</file>
-      <file>$PROJ_DIR$\movement.c</file>
       <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
       <file>$TOOLKIT_DIR$\lib\dlib\dl430fn.r43</file>
-      <file>$PROJ_DIR$\Debug\Obj\main.pbi</file>
-      <file>$TOOLKIT_DIR$\config\linker\lnk430g2553.xcl</file>
-      <file>$PROJ_DIR$\Debug\Obj\movement.r43</file>
-      <file>$PROJ_DIR$\Debug\Obj\movement.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\EE579_Project.pbd</file>
-      <file>$PROJ_DIR$\Debug\Obj\main.r43</file>
-      <file>$PROJ_DIR$\movement.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\movement.__cstat.et</file>
+      <file>$PROJ_DIR$\movement.c</file>
       <file>$PROJ_DIR$\main.c</file>
-      <file>$PROJ_DIR$\Debug\List\EE579_Project.map</file>
+      <file>$PROJ_DIR$\movement.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\ycheck.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Threads.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\main.__cstat.et</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\yvals.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\EE579_Project.pbd</file>
+      <file>$PROJ_DIR$\Debug\Obj\movement.r43</file>
+      <file>$TOOLKIT_DIR$\inc\in430.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\ysizet.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\stdio.h</file>
+      <file>$TOOLKIT_DIR$\inc\msp430g2553.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Defaults.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\main.r43</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Product.h</file>
       <file>$PROJ_DIR$\Debug\Exe\EE579_Project.ulp</file>
+      <file>$PROJ_DIR$\Debug\Obj\movement.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\main.pbi</file>
+      <file>$TOOLKIT_DIR$\lib\dlib\dl430fn.h</file>
+      <file>$TOOLKIT_DIR$\config\linker\lnk430g2553.xcl</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\xencoding_limits.h</file>
+      <file>$PROJ_DIR$\Debug\List\EE579_Project.map</file>
+      <file>$PROJ_DIR$\Debug\Exe\EE579_Project.d43</file>
+      <file>$TOOLKIT_DIR$\inc\msp430.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\ystdio.h</file>
     </outputs>
-    <file>
-      <name>$PROJ_DIR$\Debug\Exe\EE579_Project.d43</name>
-      <outputs>
-        <tool>
-          <name>XLINK</name>
-          <file> 27</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>XLINK</name>
-          <file> 20 24 21 18</file>
-        </tool>
-      </inputs>
-    </file>
     <file>
       <name>[ROOT_NODE]</name>
       <outputs>
         <tool>
-          <name>XLINK</name>
-          <file> 9 27</file>
+          <name>ULP430</name>
+          <file> 19</file>
         </tool>
         <tool>
-          <name>ULP430</name>
-          <file> 28</file>
+          <name>XLINK</name>
+          <file> 26 25</file>
         </tool>
       </outputs>
     </file>
@@ -69,25 +54,25 @@
       <outputs>
         <tool>
           <name>BICOMP</name>
-          <file> 22</file>
+          <file> 20</file>
         </tool>
         <tool>
           <name>ICC430</name>
-          <file> 21</file>
+          <file> 11</file>
         </tool>
         <tool>
           <name>__cstat</name>
-          <file> 14</file>
+          <file> 2</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>BICOMP</name>
-          <file> 17 10 7 6 25</file>
+          <file> 12 5 15 27 0</file>
         </tool>
         <tool>
           <name>ICC430</name>
-          <file> 6 7 10 17 25</file>
+          <file> 27 15 12 0 5</file>
         </tool>
       </inputs>
     </file>
@@ -96,25 +81,40 @@
       <outputs>
         <tool>
           <name>BICOMP</name>
-          <file> 19</file>
+          <file> 21</file>
         </tool>
         <tool>
           <name>ICC430</name>
-          <file> 24</file>
+          <file> 17</file>
         </tool>
         <tool>
           <name>__cstat</name>
-          <file> 15</file>
+          <file> 8</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>BICOMP</name>
-          <file> 13 4 10 6 3 12 1 17 5 11 2 0 7 8 25</file>
+          <file> 6 22 12 27 13 24 18 0 9 28 16 7 15 14 5</file>
         </tool>
         <tool>
           <name>ICC430</name>
-          <file> 8 13 5 2 4 1 12 0 3 11 17 6 7 10 25</file>
+          <file> 14 6 9 16 22 18 24 7 13 28 0 27 15 12 5</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Debug\Exe\EE579_Project.d43</name>
+      <outputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 25</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 23 17 11 1</file>
         </tool>
       </inputs>
     </file>
