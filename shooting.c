@@ -1,3 +1,4 @@
+
 #include <msp430.h>
 #include <stdio.h>
 #include <intrinsics.h>
@@ -11,6 +12,7 @@ Timer
 */
 
 #define LED_1 BIT0
+#define LED_2 BIT6
 #define INTERRUPT BIT2
 #define LED_OUT P1OUT /* Port 1 output */
 #define LED_DIR P1DIR /* Port 1 direction */ 
@@ -18,6 +20,7 @@ Timer
 
 
 unsigned int flag = 0;
+unsigned int shooting = 0;
 unsigned int timerCount = 0;
 
 unsigned int waiting_to_shoot = 0;
@@ -33,23 +36,70 @@ void ConfigTimerA(unsigned int delayCycles)
   TA0CTL |= MC_1;	/* Timer0_A3 Control: 1 - Up to CCR0 mode */
 }
 
+           // A1,  X, A1, A0, A1, A0, A1, A0, A1, A0, A1, A0, A1, A0, A1, A0 
+int shot[] = {26, 86, 26,  6};//, 26,  6, 26,  6, 26,  6, 26,  6, 26,  6, 26,  6};
+  
+int i = 0;
+int j = 0;
+
+void shoot(){
+
+  if(i < 5)
+  {  // shoot five times
+    
+    if(j < sizeof(shot))
+    {
+      P1OUT ^= LED_1; // toggle LED
+      int delay = shot[j] * 1000;
+      TA0CCR0 = delay;// wait for the time
+      j++;
+    } 
+    else 
+    {
+      j = 0;
+      i++;
+      P1OUT ^= LED_2;
+    }
+  } 
+  else 
+  { 
+    i = 0;
+    shooting = 0;
+    flag =0;
+    timerCount = 0;
+    P1OUT ^= LED_2; // toggle LED
+    TA0CCR0 = 32000;
+  }
+}
+
 // Timer A0 interrupt service routine
 #pragma vector=TIMER0_A0_VECTOR
 __interrupt void Timer_A (void)
 {  
-  timerCount++;
-  if(timerCount >5)
+  
+  if(timerCount >= 5)
   {
-    flag =1;
-    timerCount=0;
+    flag = 1;
+    // call shoot here?
+    if(shooting == 1){
+      shoot();
+    } 
+  } else {
+    timerCount++;
   }
+  
+ 
 }
+
+
 
 // Shoot every five seconds
 void shoot_5_sec_interval()
 {
   LED_DIR |= LED_1; /*Set P1.0 to output direction*/
   LED_OUT &= ~LED_1; /* Set LED off */
+  LED_DIR |= LED_2; /*Set P1.0 to output direction*/
+  LED_OUT &= ~LED_2; /* Set LED off */
   
   P1IES = 0; /* Set INT1 interrupt edge select reg */
   P1IE =( INTERRUPT + BUTTON); /* Set Port 1 interrupt enable reg */
@@ -61,10 +111,13 @@ void shoot_5_sec_interval()
   {
     if (flag==1)
     {
-      P1OUT ^= LED_1;
-     __delay_cycles(6400);/* Stops the code & waits for 6400 cycles to pass*/
-     P1OUT ^= LED_1;
-      flag =0;
+      //P1OUT ^= LED_1;
+      //__delay_cycles(6400);/* Stops the code & waits for 6400 cycles to pass*/
+      //P1OUT ^= LED_1;
+      
+      shooting = 1;
+      TA0CCR0 = 10;
+      
     }
     
   }
