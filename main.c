@@ -6,6 +6,7 @@ int main( void )
 {
   // Stop watchdog timer to prevent time out reset
   WDTCTL = WDTPW | WDTHOLD; 
-  shoot_5_sec_interval();
+ // shoot_5_sec_interval();
+  counter_attack();
     for(;;) {}
 }
