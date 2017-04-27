@@ -37,22 +37,41 @@ void ConfigTimerA(unsigned int delayCycles)
 }
 
            // A1,  X, A1, A0, A1, A0, A1, A0, A1, A0, A1, A0, A1, A0, A1, A0 
-int shot[] = {26, 86, 26,  6};//, 26,  6, 26,  6, 26,  6, 26,  6, 26,  6, 26,  6};
+int shot[] = {26,86,26,6,26,6};//, 26,  6, 26,  6, 26,  6, 26,  6, 26,  6, 26,  6};
   
 int i = 0;
 int j = 0;
 
+void shoot_hard_code()
+{
+ 
+  P1OUT ^= LED_1;
+  __delay_cycles(800);
+  P1OUT ^= LED_1;
+  __delay_cycles(2700);
+  P1OUT ^= LED_1;
+  __delay_cycles(800);
+  P1OUT ^= LED_1;
+  __delay_cycles(200);
+  shooting = 0;
+  flag =0;
+  timerCount = 0; 
+}
+
 void shoot(){
 
-  if(i < 5)
+  if(i < 2) // TOODO: Change back to 5
   {  // shoot five times
     
-    if(j < sizeof(shot))
+    unsigned int length = sizeof(shot) / sizeof(int*);
+    if(j < length)
     {
-      P1OUT ^= LED_1; // toggle LED
-      int delay = shot[j] * 1000;
-      TA0CCR0 = delay;// wait for the time
+      P1OUT ^= LED_1;
+      int delay = shot[j];
+      //TA0CCR0 = delay;// wait for the time
+      ConfigTimerA(delay);
       j++;
+      P1OUT ^= LED_1; // toggle LED
     } 
     else 
     {
@@ -67,7 +86,7 @@ void shoot(){
     shooting = 0;
     flag =0;
     timerCount = 0;
-    P1OUT ^= LED_2; // toggle LED
+    //P1OUT ^= LED_2; // toggle LED
     TA0CCR0 = 32000;
   }
 }
@@ -79,19 +98,29 @@ __interrupt void Timer_A (void)
   
   if(timerCount >= 5)
   {
-    flag = 1;
-    // call shoot here?
-    if(shooting == 1){
-      shoot();
-    } 
+    unsigned int length = sizeof(shot) / sizeof(int*);
+    if(j < length){            // j is in the middle of shooting
+      ConfigTimerA(shot[j]); // Call ISR in shot[j] cycles
+      j++;                     // increment j for next time ISR is called
+      P1OUT ^= LED_1;          // toggle LED
+    } else {                   // j finished shooting
+      j = 0;                   // reset j for next time ISR is called
+      timerCount = 0;          // reset count to 0, so ISR is called 5 times
+      ConfigTimerA(32000);  // call ISR in 32000 cycles, i.e. 1 second
+    }
   } else {
-    timerCount++;
+    timerCount++;              // not been 5 seconds yet, add to count.
   }
   
  
 }
 
 
+//flag = 1;
+// call shoot here?
+//    if(shooting == 1){
+//      shoot();
+//    } 
 
 // Shoot every five seconds
 void shoot_5_sec_interval()
@@ -116,7 +145,7 @@ void shoot_5_sec_interval()
       //P1OUT ^= LED_1;
       
       shooting = 1;
-      TA0CCR0 = 10;
+      //TA0CCR0 = 10;
       
     }
     
