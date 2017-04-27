@@ -17,6 +17,12 @@ Timer
 #define LED_OUT P1OUT /* Port 1 output */
 #define LED_DIR P1DIR /* Port 1 direction */ 
 #define BUTTON BIT3
+#define A0 5
+#define A1 26
+#define PAUSE 87
+#define B0 18 
+#define B1 13 
+
 
 
 unsigned int flag = 0;
@@ -37,26 +43,19 @@ void ConfigTimerA(unsigned int delayCycles)
 }
 
            // A1,  X, A1, A0, A1, A0, A1, A0, A1, A0, A1, A0, A1, A0, A1, A0 
-int shot[] = {26,86,26,6,26,6};//, 26,  6, 26,  6, 26,  6, 26,  6, 26,  6, 26,  6};
+int shot1[] = {26, 86, 26, 6, 26, 6, 26 , 6, 26, 6, 26, 6, 26, 6, 26, 6, 13, 19,
+              13, 19, 26, 6, 13, 19,26, 6, 13, 19,26, 6, 13, 19, 26, 6, 26, 86, 
+              26, 6, 26, 6, 26 , 6, 26, 6, 26, 6, 26, 6, 26, 6, 13, 19,
+              13, 19, 26, 6, 13, 19,26, 6, 13, 19,26, 6, 13, 19, 26, 6};
+
+int shot[] = {A1,PAUSE, A1,A0,A1,A0,A1,A0,A1,A0,A1,A0,A1,A0,A1,A0,B1,B0,B1,
+              B0,A1,A0,B1,B0,A1,A0,B1,B0,A1,A0,B1,B0,A1,A0,A1,PAUSE, A1,A0,
+              A1,A0,A1,A0,A1,A0,A1,A0,A1,A0,A1,A0,B1,B0,B1,B0,A1,A0,B1,B0,A1,
+              A0,B1,B0,A1,A0,B1,B0,A1,A0};
   
 int i = 0;
 int j = 0;
 
-void shoot_hard_code()
-{
- 
-  P1OUT ^= LED_1;
-  __delay_cycles(800);
-  P1OUT ^= LED_1;
-  __delay_cycles(2700);
-  P1OUT ^= LED_1;
-  __delay_cycles(800);
-  P1OUT ^= LED_1;
-  __delay_cycles(200);
-  shooting = 0;
-  flag =0;
-  timerCount = 0; 
-}
 
 void shoot(){
 
@@ -111,8 +110,7 @@ __interrupt void Timer_A (void)
   } else {
     timerCount++;              // not been 5 seconds yet, add to count.
   }
-  
- 
+
 }
 
 
@@ -143,7 +141,6 @@ void shoot_5_sec_interval()
       //P1OUT ^= LED_1;
       //__delay_cycles(6400);/* Stops the code & waits for 6400 cycles to pass*/
       //P1OUT ^= LED_1;
-      
       shooting = 1;
       //TA0CCR0 = 10;
       
