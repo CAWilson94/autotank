@@ -45,9 +45,9 @@ void ConfigTimerB()
 {
   /* Using SCLK  1MHZ crystal clock */
   TA1CCR0 = 26;                          // 1000us
-  TA1CCTL1 = OUTMOD_7;                      // CCR1 reset/set
+  TA1CCTL0 = OUTMOD_7;                      // CCR1 reset/set
   TA1CCR1 = 18;                            // CCR1 PWM duty cycle
-  TA1CCTL2 = OUTMOD_7;                      // CCR2 reset/set
+  TA1CCTL1 = OUTMOD_7;                      // CCR2 reset/set
   TA1CTL = TASSEL_2 + MC_1 + TACLR;         // SMCLK, up mode, clear TAR
 }
 
