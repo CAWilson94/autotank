@@ -16,12 +16,13 @@ Timer
 #define INTERRUPT BIT2
 #define LED_OUT P1OUT /* Port 1 output */
 #define LED_DIR P1DIR /* Port 1 direction */ 
+#define LED_SEL P1SEL /* Port 1 select*/ 
 #define BUTTON BIT3
-#define A0 5
-#define A1 26
-#define PAUSE 87
-#define B0 18 
-#define B1 13 
+#define A0 11
+#define A1 21
+#define PAUSE 92
+#define B0 24
+#define B1 8 
 
 
 
@@ -43,15 +44,13 @@ void ConfigTimerA(unsigned int delayCycles)
 }
 
            // A1,  X, A1, A0, A1, A0, A1, A0, A1, A0, A1, A0, A1, A0, A1, A0 
-int shot1[] = {26, 86, 26, 6, 26, 6, 26 , 6, 26, 6, 26, 6, 26, 6, 26, 6, 13, 19,
-              13, 19, 26, 6, 13, 19,26, 6, 13, 19,26, 6, 13, 19, 26, 6, 26, 86, 
-              26, 6, 26, 6, 26 , 6, 26, 6, 26, 6, 26, 6, 26, 6, 13, 19,
-              13, 19, 26, 6, 13, 19,26, 6, 13, 19,26, 6, 13, 19, 26, 6};
 
-int shot[] = {A1,PAUSE, A1,A0,A1,A0,A1,A0,A1,A0,A1,A0,A1,A0,A1,A0,B1,B0,B1,
-              B0,A1,A0,B1,B0,A1,A0,B1,B0,A1,A0,B1,B0,A1,A0,A1,PAUSE, A1,A0,
-              A1,A0,A1,A0,A1,A0,A1,A0,A1,A0,A1,A0,B1,B0,B1,B0,A1,A0,B1,B0,A1,
-              A0,B1,B0,A1,A0,B1,B0,A1,A0};
+int shot[] = {A1,PAUSE,A1,A0,A1,A0,A1,A0,A1,A0,A1,A0,A1,A0,
+              B1,B0,B1,B0,B1,B0,
+              A1,A0,B1,B0,A1,A0,B1,B0,A1,A0,B1,B0,A1,A0,
+              A1,PAUSE,A1,A0,A1,A0,A1,A0,A1,A0,A1,A0,A1,A0,
+              B1,B0,B1,B0,B1,B0,
+              A1,A0,B1,B0,A1,A0,B1,B0,A1,A0,B1,B0,A1,A0};
   
 int i = 0;
 int j = 0;
@@ -97,6 +96,7 @@ __interrupt void Timer_A (void)
   
   if(timerCount >= 5)
   {
+    
     unsigned int length = sizeof(shot) / sizeof(int*);
     if(j < length){            // j is in the middle of shooting
       ConfigTimerA(shot[j]); // Call ISR in shot[j] cycles
@@ -106,7 +106,9 @@ __interrupt void Timer_A (void)
       j = 0;                   // reset j for next time ISR is called
       timerCount = 0;          // reset count to 0, so ISR is called 5 times
       ConfigTimerA(32000);  // call ISR in 32000 cycles, i.e. 1 second
-    }
+  }
+   
+    
   } else {
     timerCount++;              // not been 5 seconds yet, add to count.
   }
