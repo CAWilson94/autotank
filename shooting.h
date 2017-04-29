@@ -5,5 +5,4 @@ Header files for shooting.c
 */
 
 void shoot_5_sec_interval();
-void counter_attack();
 

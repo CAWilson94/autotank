@@ -24,8 +24,6 @@ Timer
 #define B0 24
 #define B1 8 
 
-
-
 unsigned int flag = 0;
 unsigned int shooting = 0;
 unsigned int timerCount = 0;
@@ -43,6 +41,16 @@ void ConfigTimerA(unsigned int delayCycles)
   TA0CTL |= MC_1;	/* Timer0_A3 Control: 1 - Up to CCR0 mode */
 }
 
+void ConfigTimerB()
+{
+  /* Using SCLK  1MHZ crystal clock */
+  TA1CCR0 = 26;                          // 1000us
+  TA1CCTL1 = OUTMOD_7;                      // CCR1 reset/set
+  TA1CCR1 = 18;                            // CCR1 PWM duty cycle
+  TA1CCTL2 = OUTMOD_7;                      // CCR2 reset/set
+  TA1CTL = TASSEL_2 + MC_1 + TACLR;         // SMCLK, up mode, clear TAR
+}
+
            // A1,  X, A1, A0, A1, A0, A1, A0, A1, A0, A1, A0, A1, A0, A1, A0 
 
 int shot[] = {A1,PAUSE,A1,A0,A1,A0,A1,A0,A1,A0,A1,A0,A1,A0,
@@ -55,38 +63,12 @@ int shot[] = {A1,PAUSE,A1,A0,A1,A0,A1,A0,A1,A0,A1,A0,A1,A0,
 int i = 0;
 int j = 0;
 
-
-void shoot(){
-
-  if(i < 2) // TOODO: Change back to 5
-  {  // shoot five times
-    
-    unsigned int length = sizeof(shot) / sizeof(int*);
-    if(j < length)
-    {
-      P1OUT ^= LED_1;
-      int delay = shot[j];
-      //TA0CCR0 = delay;// wait for the time
-      ConfigTimerA(delay);
-      j++;
-      P1OUT ^= LED_1; // toggle LED
-    } 
-    else 
-    {
-      j = 0;
-      i++;
-      P1OUT ^= LED_2;
-    }
-  } 
-  else 
-  { 
-    i = 0;
-    shooting = 0;
-    flag =0;
-    timerCount = 0;
-    //P1OUT ^= LED_2; // toggle LED
-    TA0CCR0 = 32000;
-  }
+// Timer A0 interrupt service routine
+#pragma vector=TIMER0_A1_VECTOR
+__interrupt void Timer_A1 (void)
+{
+  
+  
 }
 
 // Timer A0 interrupt service routine
@@ -99,28 +81,29 @@ __interrupt void Timer_A (void)
     
     unsigned int length = sizeof(shot) / sizeof(int*);
     if(j < length){            // j is in the middle of shooting
-      ConfigTimerA(shot[j]); // Call ISR in shot[j] cycles
+     // case_duty_cycle();     // Duty cycle toggling for each part of signal
+      ConfigTimerA(shot[j]);   // Call ISR in shot[j] cycles
       j++;                     // increment j for next time ISR is called
-      P1OUT ^= LED_1;          // toggle LED
+      //P1OUT ^= LED_1;        // toggle LED
+      
+      if(flag == 1)
+      {                         // Whether the PWM should be on or off, 1 = on
+        P1SEL &= ~LED_1;       // Turn off PWM output
+        flag = 0;              // Turn off next time ISR is called
+      }
+      else {                   // 0 = off
+        P1SEL |= LED_1;        // Start PWM output
+        flag = 1;              // Start PWM timer next time ISR is called
+      }
     } else {                   // j finished shooting
       j = 0;                   // reset j for next time ISR is called
       timerCount = 0;          // reset count to 0, so ISR is called 5 times
       ConfigTimerA(32000);  // call ISR in 32000 cycles, i.e. 1 second
-  }
-   
-    
+  } 
   } else {
     timerCount++;              // not been 5 seconds yet, add to count.
   }
-
 }
-
-
-//flag = 1;
-// call shoot here?
-//    if(shooting == 1){
-//      shoot();
-//    } 
 
 // Shoot every five seconds
 void shoot_5_sec_interval()
@@ -135,6 +118,7 @@ void shoot_5_sec_interval()
   P1IFG &= ~(INTERRUPT + BUTTON);
   
   ConfigTimerA(32000);
+  ConfigTimerB();
   __enable_interrupt();/* Loop and wait for interrupt */
   while(1)
   {
@@ -144,13 +128,11 @@ void shoot_5_sec_interval()
       //__delay_cycles(6400);/* Stops the code & waits for 6400 cycles to pass*/
       //P1OUT ^= LED_1;
       shooting = 1;
-      //TA0CCR0 = 10;
-      
-    }
-    
-  }
-  
+      //TA0CCR0 = 10;  
+    } 
+  } 
 }
+
 
 void counter_attack()
 {
@@ -164,7 +146,6 @@ void counter_attack()
   P1IFG &= ~BUTTON; //clear interrupt
   __enable_interrupt();
 }
-
 #pragma vector=PORT1_VECTOR
 __interrupt void sw_int(void)
 {
