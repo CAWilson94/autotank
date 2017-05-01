@@ -15,5 +15,4 @@ int main( void )
   TA0CCR1 = 18;
   TA0CTL = TASSEL_2 + MC_1;*/
   shoot_5_sec_interval();
-  
 }

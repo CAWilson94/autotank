@@ -22,6 +22,7 @@ Timer
 #define B1 8 
 
 int j = 0;
+int i = 0;
 unsigned int flag = 0;
 unsigned int shooting = 0;
 unsigned int timerCount = 0;
@@ -56,28 +57,38 @@ void ConfigTimerB()
 
 void pwm_output()
 {
-    if(timerCount >= 5)
+  if(timerCount >= 5)
   {
-    
-    unsigned int length = sizeof(shot) / sizeof(int*);
-    if(j < length){            /* j is in the middle of shooting*/
-      ConfigTimerA(shot[j]);   /*Call ISR in shot[j] cycles*/
-      j++;                     /* increment j for next time ISR is called*/
-      if(flag == 1)
-      {                        /* Whether the PWM should be on or off, 1 = on*/
-        P2SEL &= ~BIT2;       /* Turn off PWM output*/
-        flag = 0;              /* Turn off next time ISR is called*/
-      }
-      else {                   /* 0 = off*/
-        P2SEL |= BIT2;        /*Start PWM output*/
-        flag = 1;              /*Start PWM timer next time ISR is called*/
-      }
-    } else {                   /* j finished shooting*/
-      j = 0;                   /* reset j for next time ISR is called*/
+    if(i<4){
+      
+      unsigned int length = sizeof(shot) / sizeof(int*);
+      if(j < length){            /* j is in the middle of shooting*/
+        ConfigTimerA(shot[j]);   /*Call ISR in shot[j] cycles*/
+        j++;                     /* increment j for next time ISR is called*/
+        if(flag == 1)
+        {                        /* Whether the PWM should be on or off, 1 = on*/
+          P2SEL &= ~BIT2;       /* Turn off PWM output*/
+          flag = 0;              /* Turn off next time ISR is called*/
+        }
+        else {                   /* 0 = off*/
+          P2SEL |= BIT2;        /*Start PWM output*/
+          flag = 1;              /*Start PWM timer next time ISR is called*/
+        }
+      } else {                   /* j finished shooting*/
+        j = 0;                   /* reset j for next time ISR is called*/
+         i++;
+      } 
+      
+    }
+    else
+    {
+      i=0;
       timerCount = 0;          /* reset count to 0, so ISR is called 5 times*/
       ConfigTimerA(32000);  /* call ISR in 32000 cycles, i.e. 1 second*/
-    } 
-  } else {
+    }
+  }
+  
+  else {
     timerCount++;              /* not been 5 seconds yet, add to count*/
   }
 }
@@ -94,6 +105,8 @@ __interrupt void Timer_A (void)
 void shoot_5_sec_interval()
 {
   P2DIR |= BIT2; /*p2.2 for PWM output*/
+  P2SEL &= ~BIT2;
+  P2OUT &= ~BIT2;
   P1IES = 0; /* Set INT1 interrupt edge select reg */
   P1IE =( INTERRUPT + BUTTON); /* Set Port 1 interrupt enable reg */
   P1IFG &= ~(INTERRUPT + BUTTON);
