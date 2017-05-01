@@ -46,7 +46,7 @@ void ConfigTimerB()
   /* Using SCLK  1MHZ crystal clock */
   TA1CCR0 = 26;                          // 1000us
   TA1CCTL0 = OUTMOD_7;                      // CCR1 reset/set
-  TA1CCR1 = 18;                            // CCR1 PWM duty cycle
+  TA1CCR1 = 13;                            // CCR1 PWM duty cycle
   TA1CCTL1 = OUTMOD_7;                      // CCR2 reset/set
   TA1CTL = TASSEL_2 + MC_1 + TACLR;         // SMCLK, up mode, clear TAR
 }
@@ -88,11 +88,11 @@ __interrupt void Timer_A (void)
       
       if(flag == 1)
       {                         // Whether the PWM should be on or off, 1 = on
-        P1SEL &= ~LED_1;       // Turn off PWM output
+        P2SEL &= ~BIT2;       // Turn off PWM output
         flag = 0;              // Turn off next time ISR is called
       }
       else {                   // 0 = off
-        P1SEL |= LED_1;        // Start PWM output
+        P2SEL |= BIT2;        // Start PWM output
         flag = 1;              // Start PWM timer next time ISR is called
       }
     } else {                   // j finished shooting
@@ -108,10 +108,7 @@ __interrupt void Timer_A (void)
 // Shoot every five seconds
 void shoot_5_sec_interval()
 {
-  LED_DIR |= LED_1; /*Set P1.0 to output direction*/
-  LED_OUT &= ~LED_1; /* Set LED off */
-  LED_DIR |= LED_2; /*Set P1.0 to output direction*/
-  LED_OUT &= ~LED_2; /* Set LED off */
+  P2DIR |= BIT2;
   
   P1IES = 0; /* Set INT1 interrupt edge select reg */
   P1IE =( INTERRUPT + BUTTON); /* Set Port 1 interrupt enable reg */
