@@ -38,7 +38,7 @@ ShowSource=1
 [Simulator]
 Freq=1000000
 [DebugChecksum]
-Checksum=48243861
+Checksum=916288494
 [EEM State Storage]
 Buffer=BAAAAAAADAAAAAAAAAAAAAAA
 [EEM Sequencer]
@@ -52,9 +52,7 @@ ShowArgs=0
 [Disassembly]
 MixedMode=1
 [Breakpoints]
-Bp0=_ "STD_CODE" "{$PROJ_DIR$\shooting.c}.141.3" 1 0 0 0 "" 0 ""
-Bp1=_ "STD_CODE" "{$PROJ_DIR$\shooting.c}.141.3" 1 0 0 0 "" 0 ""
-Count=2
+Count=0
 [FET]
 Clock mode=38
 Secure Password=

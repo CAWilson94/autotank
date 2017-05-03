@@ -73,10 +73,9 @@
           <SelEnd>0</SelEnd>
           <XPos2>0</XPos2>
           <YPos2>0</YPos2>
-          <SelStart2>139</SelStart2>
-          <SelEnd2>139</SelEnd2>
+          <SelStart2>402</SelStart2>
+          <SelEnd2>402</SelEnd2>
         </Tab>
-        <ActiveTab>0</ActiveTab>
         <Tab>
           <Factory>TextEditor</Factory>
           <Filename>$WS_DIR$\ir_sense.c</Filename>
@@ -86,9 +85,10 @@
           <SelEnd>0</SelEnd>
           <XPos2>0</XPos2>
           <YPos2>0</YPos2>
-          <SelStart2>369</SelStart2>
-          <SelEnd2>369</SelEnd2>
+          <SelStart2>511</SelStart2>
+          <SelEnd2>511</SelEnd2>
         </Tab>
+        <ActiveTab>1</ActiveTab>
         <Tab>
           <Factory>TextEditor</Factory>
           <Filename>$WS_DIR$\movement.c</Filename>
@@ -98,8 +98,8 @@
           <SelEnd>0</SelEnd>
           <XPos2>0</XPos2>
           <YPos2>46</YPos2>
-          <SelStart2>595</SelStart2>
-          <SelEnd2>595</SelEnd2>
+          <SelStart2>2032</SelStart2>
+          <SelEnd2>2032</SelEnd2>
         </Tab>
         <Tab>
           <Factory>TextEditor</Factory>
@@ -109,9 +109,9 @@
           <SelStart>0</SelStart>
           <SelEnd>0</SelEnd>
           <XPos2>0</XPos2>
-          <YPos2>86</YPos2>
-          <SelStart2>3051</SelStart2>
-          <SelEnd2>3051</SelEnd2>
+          <YPos2>114</YPos2>
+          <SelStart2>3740</SelStart2>
+          <SelEnd2>3740</SelEnd2>
         </Tab>
         <Tab>
           <Factory>TextEditor</Factory>
@@ -170,8 +170,8 @@
           <SelEnd>0</SelEnd>
           <XPos2>0</XPos2>
           <YPos2>0</YPos2>
-          <SelStart2>68</SelStart2>
-          <SelEnd2>68</SelEnd2>
+          <SelStart2>0</SelStart2>
+          <SelEnd2>0</SelEnd2>
         </Tab>
         <Tab>
           <Factory>TextEditor</Factory>
@@ -366,6 +366,30 @@
         <Row54>
           <Sizes/>
         </Row54>
+        <Row55>
+          <Sizes/>
+        </Row55>
+        <Row56>
+          <Sizes/>
+        </Row56>
+        <Row57>
+          <Sizes/>
+        </Row57>
+        <Row58>
+          <Sizes/>
+        </Row58>
+        <Row59>
+          <Sizes/>
+        </Row59>
+        <Row60>
+          <Sizes/>
+        </Row60>
+        <Row61>
+          <Sizes/>
+        </Row61>
+        <Row62>
+          <Sizes/>
+        </Row62>
       </Top>
       <Left>
         <Row0>

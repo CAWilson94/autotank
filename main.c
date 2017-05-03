@@ -20,8 +20,12 @@ int main( void )
   void main()
 {
 	WDTCTL = WDTPW + WDTHOLD;
-	P1DIR |= (BIT0 + BIT1 + BIT2 + BIT3);
+	/*P1DIR |= (BIT0 + BIT1 + BIT2 + BIT3);
 	P1OUT |= (BIT0 + BIT3);
-	P1OUT &= ~(BIT1 + BIT2);
-        for(;;){}
+	P1OUT &= ~(BIT1 + BIT2);*/
+        ir_init();
+       
+        for(;;){
+        ir_run();
+        }
 }
