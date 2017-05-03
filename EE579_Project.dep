@@ -2,92 +2,60 @@
 
 <project>
   <fileVersion>2</fileVersion>
-  <fileChecksum>2012926570</fileChecksum>
+  <fileChecksum>3622207376</fileChecksum>
   <configuration>
     <name>Debug</name>
     <outputs>
+      <file>$PROJ_DIR$\Debug\Obj\shooting.pbi</file>
+      <file>$PROJ_DIR$\shooting.c</file>
+      <file>$PROJ_DIR$\Debug\Obj\shooting.r43</file>
+      <file>$PROJ_DIR$\shooting.h</file>
+      <file>$PROJ_DIR$\turret_movement.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\turret_movement.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\EE579_Project.pbd</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\stdio.h</file>
+      <file>$PROJ_DIR$\turret_movement.c</file>
       <file>$PROJ_DIR$\Debug\Obj\main.__cstat.et</file>
       <file>$PROJ_DIR$\Debug\Obj\turret_movement.__cstat.et</file>
-      <file>$PROJ_DIR$\Debug\Obj\turret_movement.r43</file>
-      <file>$TOOLKIT_DIR$\inc\in430.h</file>
-      <file>$TOOLKIT_DIR$\inc\dlib\c\stdio.h</file>
-      <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Defaults.h</file>
-      <file>$PROJ_DIR$\Debug\Exe\EE579_Project.d43</file>
-      <file>$PROJ_DIR$\Debug\Obj\EE579_Project.pbd</file>
-      <file>$PROJ_DIR$\Debug\List\EE579_Project.map</file>
-      <file>$TOOLKIT_DIR$\config\linker\lnk430g2553.xcl</file>
-      <file>$TOOLKIT_DIR$\inc\msp430.h</file>
-      <file>$TOOLKIT_DIR$\lib\dlib\dl430fn.h</file>
-      <file>$TOOLKIT_DIR$\inc\dlib\c\ystdio.h</file>
-      <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Threads.h</file>
-      <file>$TOOLKIT_DIR$\lib\dlib\dl430fn.r43</file>
-      <file>$TOOLKIT_DIR$\inc\dlib\c\ycheck.h</file>
-      <file>$TOOLKIT_DIR$\inc\dlib\c\ysizet.h</file>
-      <file>$TOOLKIT_DIR$\inc\dlib\c\xencoding_limits.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\main.pbi</file>
       <file>$PROJ_DIR$\main.c</file>
-      <file>$PROJ_DIR$\Debug\Obj\turret_movement.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Defaults.h</file>
+      <file>$TOOLKIT_DIR$\inc\in430.h</file>
+      <file>$PROJ_DIR$\Debug\Exe\EE579_Project.d43</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Threads.h</file>
+      <file>$TOOLKIT_DIR$\config\linker\lnk430g2553.xcl</file>
       <file>$TOOLKIT_DIR$\inc\msp430g2553.h</file>
-      <file>$PROJ_DIR$\turret_movement.h</file>
-      <file>$TOOLKIT_DIR$\inc\dlib\c\yvals.h</file>
-      <file>$PROJ_DIR$\turret_movement.c</file>
-      <file>$PROJ_DIR$\Debug\Obj\main.r43</file>
       <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\main.r43</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\xencoding_limits.h</file>
+      <file>$PROJ_DIR$\Debug\List\EE579_Project.map</file>
+      <file>$TOOLKIT_DIR$\lib\dlib\dl430fn.r43</file>
+      <file>$TOOLKIT_DIR$\inc\msp430.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\yvals.h</file>
       <file>$PROJ_DIR$\Debug\Exe\EE579_Project.ulp</file>
       <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Product.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\ystdio.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\ysizet.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\main.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\ycheck.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\turret_movement.pbi</file>
+      <file>$TOOLKIT_DIR$\lib\dlib\dl430fn.h</file>
     </outputs>
     <file>
-      <name>$PROJ_DIR$\Debug\Exe\EE579_Project.d43</name>
-      <outputs>
-        <tool>
-          <name>XLINK</name>
-          <file> 8</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>XLINK</name>
-          <file> 9 25 2 14</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>[ROOT_NODE]</name>
-      <outputs>
-        <tool>
-          <name>ULP430</name>
-          <file> 27</file>
-        </tool>
-        <tool>
-          <name>XLINK</name>
-          <file> 6 8</file>
-        </tool>
-      </outputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\main.c</name>
+      <name>$PROJ_DIR$\shooting.c</name>
       <outputs>
         <tool>
           <name>ICC430</name>
-          <file> 25</file>
+          <file> 2</file>
         </tool>
         <tool>
-          <name>__cstat</name>
+          <name>BICOMP</name>
           <file> 0</file>
         </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 18</file>
-        </tool>
       </outputs>
       <inputs>
         <tool>
-          <name>ICC430</name>
-          <file> 4 15 23 5 11 28 17 13 16 12 26 10 21 3</file>
-        </tool>
-        <tool>
           <name>BICOMP</name>
-          <file> 15 11 3 10 16 17 28 26 23 12 5 13 21 4</file>
+          <file> 32 17 30 18 13 7 28 20 26 23 24 27 12 15</file>
         </tool>
       </inputs>
     </file>
@@ -96,27 +64,82 @@
       <outputs>
         <tool>
           <name>ICC430</name>
-          <file> 2</file>
+          <file> 5</file>
         </tool>
         <tool>
           <name>__cstat</name>
-          <file> 1</file>
+          <file> 10</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 20</file>
+          <file> 31</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>ICC430</name>
-          <file> 4 15 23 5 11 28 17 13 16 12 26 10 21 3</file>
+          <file> 7 30 24 12 32 26 20 15 28 27 18 23 17 13</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 15 11 3 10 16 17 28 26 23 12 5 13 21 4</file>
+          <file> 30 32 13 23 28 20 26 18 24 27 12 15 17 7</file>
         </tool>
       </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\main.c</name>
+      <outputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 19</file>
+        </tool>
+        <tool>
+          <name>__cstat</name>
+          <file> 9</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 29</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 7 30 24 12 32 26 20 15 28 27 18 23 17 13</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 30 32 13 23 28 20 26 18 24 27 12 15 17 7</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Debug\Exe\EE579_Project.d43</name>
+      <outputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 21</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 16 19 2 5 22</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>[ROOT_NODE]</name>
+      <outputs>
+        <tool>
+          <name>ULP430</name>
+          <file> 25</file>
+        </tool>
+        <tool>
+          <name>XLINK</name>
+          <file> 14 21</file>
+        </tool>
+      </outputs>
     </file>
   </configuration>
   <configuration>
