@@ -14,7 +14,6 @@ Timer
 #define LED_OUT P1OUT /* Port 1 output */
 #define LED_DIR P1DIR /* Port 1 direction */ 
 #define LED_SEL P1SEL /* Port 1 select*/ 
-#define BUTTON BIT3
 #define A0 11
 #define A1 21
 #define PAUSE 92
@@ -108,8 +107,8 @@ void shoot_5_sec_interval()
   P2SEL &= ~BIT2;
   P2OUT &= ~BIT2;
   P1IES = 0; /* Set INT1 interrupt edge select reg */
-  P1IE =( INTERRUPT + BUTTON); /* Set Port 1 interrupt enable reg */
-  P1IFG &= ~(INTERRUPT + BUTTON);
+  P1IE =( INTERRUPT + BIT3); /* Set Port 1 interrupt enable reg */
+  P1IFG &= ~(INTERRUPT + BIT3);
   
   ConfigTimerA(32000);
   ConfigTimerB();
@@ -127,18 +126,18 @@ void shoot_5_sec_interval()
 void counter_attack()
 {
   P1DIR |= BIT0;   // set P1DIR with P0 to high (1)
-  P1DIR &= ~BUTTON; //set P1.3 (Switch 2) as input
+  P1DIR &= ~BIT3; //set P1.3 (Switch 2) as input
   P1OUT &= ~BIT0; //turn led off
-  P1REN |= BUTTON; 
-  P1OUT &= BUTTON;
+  P1REN |= BIT3; 
+  P1OUT &= BIT3;
   P1IES = 0; /* Set INT1 interrupt edge select reg */
-  P1IE |= BUTTON;   /* Set Port 1 interrupt enable reg */
-  P1IFG &= ~BUTTON; //clear interrupt
+  P1IE |= BIT3;   /* Set Port 1 interrupt enable reg */
+  P1IFG &= ~BIT3; //clear interrupt
   __enable_interrupt();
 }
 #pragma vector=PORT1_VECTOR
 __interrupt void sw_int(void)
 {
   P1OUT ^= BIT0;
-  P1IFG &= ~BUTTON;
+  P1IFG &= ~BIT3;
 }
