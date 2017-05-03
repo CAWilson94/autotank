@@ -22,6 +22,7 @@ Timer
 
 int j = 0;
 int i = 0;
+int move_turret =0;
 unsigned int flag = 0;
 unsigned int shooting = 0;
 unsigned int timerCount = 0;
@@ -97,6 +98,15 @@ void pwm_output()
 __interrupt void Timer_A (void)
 {  
   pwm_output();
+  if (move_turret == 1){
+    P1OUT |= BIT0;
+    P1OUT &= ~BIT1;
+    move_turret=0;
+  }
+  else {
+    P1OUT |= BIT0;
+    P1OUT |= BIT1;
+  }
 
 }
 
@@ -106,9 +116,9 @@ void shoot_5_sec_interval()
   P2DIR |= BIT2; /*p2.2 for PWM output*/
   P2SEL &= ~BIT2;
   P2OUT &= ~BIT2;
-  P1IES = 0; /* Set INT1 interrupt edge select reg */
-  P1IE =( INTERRUPT + BIT3); /* Set Port 1 interrupt enable reg */
-  P1IFG &= ~(INTERRUPT + BIT3);
+  P2IES = 0; /* Set INT1 interrupt edge select reg */
+  P2IE =( INTERRUPT + BIT3); /* Set Port 1 interrupt enable reg */
+  P2IFG &= ~(INTERRUPT + BIT3);
   
   ConfigTimerA(32000);
   ConfigTimerB();
@@ -122,22 +132,21 @@ void shoot_5_sec_interval()
   } 
 }
 
-
 void counter_attack()
 {
-  P1DIR |= BIT0;   // set P1DIR with P0 to high (1)
-  P1DIR &= ~BIT3; //set P1.3 (Switch 2) as input
-  P1OUT &= ~BIT0; //turn led off
+  P1DIR |= BIT0 + BIT1;   // set P1DIR with P0 to high (1)
+  P1DIR &= ~BIT5; //set P1.3 (Switch 2) as input
+  P1OUT &= ~(BIT0 + BIT1); //turn led off
   P1REN |= BIT3; 
   P1OUT &= BIT3;
-  P1IES = 0; /* Set INT1 interrupt edge select reg */
-  P1IE |= BIT3;   /* Set Port 1 interrupt enable reg */
-  P1IFG &= ~BIT3; //clear interrupt
+  P1IES =0; /* Set INT1 interrupt edge select reg */
+  P1IE |= BIT5;   /* Set Port 1 interrupt enable reg */
+  P1IFG &= ~BIT5; //clear interrupt
   __enable_interrupt();
 }
 #pragma vector=PORT1_VECTOR
 __interrupt void sw_int(void)
 {
-  P1OUT ^= BIT0;
-  P1IFG &= ~BIT3;
+  move_turret = 1;
+  P1IFG &= ~BIT5;
 }
