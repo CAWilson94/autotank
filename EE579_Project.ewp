@@ -3088,7 +3088,7 @@
         </option>
         <option>
           <name>XclFile</name>
-          <state>$TOOLKIT_DIR$\config\linker\lnk430f149.xcl</state>
+          <state>$TOOLKIT_DIR$\config\linker\lnk430g2553.xcl</state>
         </option>
         <option>
           <name>XclFileSlave</name>
@@ -4538,6 +4538,12 @@
       <data/>
     </settings>
   </configuration>
+  <file>
+    <name>$PROJ_DIR$\ir_sense.c</name>
+  </file>
+  <file>
+    <name>$PROJ_DIR$\ir_sense.h</name>
+  </file>
   <file>
     <name>$PROJ_DIR$\main.c</name>
   </file>
