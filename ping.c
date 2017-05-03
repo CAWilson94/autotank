@@ -84,11 +84,6 @@ __interrupt void Port_1(void)
 	}
 }
 */
-#pragma vector=TIMER0_A0_VECTOR
-__interrupt void Timer_A (void)
-{
-  miliseconds++;
-}
 
 	
 
