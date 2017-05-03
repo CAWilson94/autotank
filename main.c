@@ -3,7 +3,6 @@
 #include <intrinsics.h>
 #include <msp430.h>
 #include "movement.h"
-#include "ir_sense.h"
 #include "shooting.h"
 #include "turret_movement.h"
 
