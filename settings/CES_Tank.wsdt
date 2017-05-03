@@ -63,9 +63,10 @@
           <SelEnd>0</SelEnd>
           <XPos2>0</XPos2>
           <YPos2>0</YPos2>
-          <SelStart2>295</SelStart2>
-          <SelEnd2>295</SelEnd2>
+          <SelStart2>291</SelStart2>
+          <SelEnd2>291</SelEnd2>
         </Tab>
+        <ActiveTab>0</ActiveTab>
         <Tab>
           <Factory>TextEditor</Factory>
           <Filename>$WS_DIR$\ir_sense.c</Filename>
@@ -75,8 +76,8 @@
           <SelEnd>0</SelEnd>
           <XPos2>0</XPos2>
           <YPos2>0</YPos2>
-          <SelStart2>0</SelStart2>
-          <SelEnd2>0</SelEnd2>
+          <SelStart2>369</SelStart2>
+          <SelEnd2>369</SelEnd2>
         </Tab>
         <Tab>
           <Factory>TextEditor</Factory>
@@ -86,9 +87,9 @@
           <SelStart>0</SelStart>
           <SelEnd>0</SelEnd>
           <XPos2>0</XPos2>
-          <YPos2>0</YPos2>
-          <SelStart2>187</SelStart2>
-          <SelEnd2>187</SelEnd2>
+          <YPos2>46</YPos2>
+          <SelStart2>595</SelStart2>
+          <SelEnd2>595</SelEnd2>
         </Tab>
         <Tab>
           <Factory>TextEditor</Factory>
@@ -135,8 +136,8 @@
           <SelEnd>0</SelEnd>
           <XPos2>0</XPos2>
           <YPos2>0</YPos2>
-          <SelStart2>124</SelStart2>
-          <SelEnd2>124</SelEnd2>
+          <SelStart2>0</SelStart2>
+          <SelEnd2>19</SelEnd2>
         </Tab>
         <Tab>
           <Factory>TextEditor</Factory>
@@ -158,11 +159,22 @@
           <SelStart>0</SelStart>
           <SelEnd>0</SelEnd>
           <XPos2>0</XPos2>
-          <YPos2>0</YPos2>
-          <SelStart2>257</SelStart2>
-          <SelEnd2>257</SelEnd2>
+          <YPos2>20</YPos2>
+          <SelStart2>305</SelStart2>
+          <SelEnd2>305</SelEnd2>
         </Tab>
-        <ActiveTab>8</ActiveTab>
+        <Tab>
+          <Factory>TextEditor</Factory>
+          <Filename>$WS_DIR$\ping.h</Filename>
+          <XPos>0</XPos>
+          <YPos>0</YPos>
+          <SelStart>0</SelStart>
+          <SelEnd>0</SelEnd>
+          <XPos2>0</XPos2>
+          <YPos2>0</YPos2>
+          <SelStart2>35</SelStart2>
+          <SelEnd2>35</SelEnd2>
+        </Tab>
       </Pane>
       <ActivePane>0</ActivePane>
       <Sizes>

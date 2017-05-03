@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <intrinsics.h>
 #include <msp430.h>
-#include "movement.h"
+
 /*int main( void )
 {
   // Stop watchdog timer to prevent time out reset
@@ -24,7 +24,7 @@ int miliseconds;
 int distance;
 long sensor;
 
-void main(void)
+void ping(void)
 {
   BCSCTL1 = CALBC1_1MHZ;
   DCOCTL = CALDCO_1MHZ;                     // submainclock 1mhz
@@ -58,7 +58,7 @@ void main(void)
         
  }
 }
-
+/*
 #pragma vector=PORT1_VECTOR
 __interrupt void Port_1(void)
 {
@@ -89,6 +89,6 @@ __interrupt void Timer_A (void)
 {
   miliseconds++;
 }
-
+*/
 	
 

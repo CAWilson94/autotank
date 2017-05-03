@@ -2117,6 +2117,9 @@
     <name>$PROJ_DIR$\ping.c</name>
   </file>
   <file>
+    <name>$PROJ_DIR$\ping.h</name>
+  </file>
+  <file>
     <name>$PROJ_DIR$\shooting.c</name>
   </file>
   <file>
