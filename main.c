@@ -24,7 +24,7 @@ int main( void )
 	P1OUT |= (BIT0 + BIT3);
 	P1OUT &= ~(BIT1 + BIT2);*/
         ir_init();
-       
+       __enable_interrupt();
         for(;;){
         ir_run();
         }
