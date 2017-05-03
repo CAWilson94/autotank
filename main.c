@@ -12,8 +12,9 @@ int main( void )
   WDTCTL = WDTPW | WDTHOLD;
  // movement_init();
  // counter_attack();
-  P1DIR |= BIT0;
-  P1OUT |= BIT0;
+  shoot_5_sec_interval();
+ // P1DIR |= BIT0;
+ // P1OUT |= BIT0;
   
   for(;;){}
 }

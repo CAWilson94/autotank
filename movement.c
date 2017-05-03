@@ -62,7 +62,7 @@ void rotate_180_left(){
   P1OUT &= ~(MOTOR_RIGHT_BACKWARDS + MOTOR_LEFT_FORWARDS);
   
 }
-
+/*
 // Port 1 interrupt service routine
 #pragma vector=PORT1_VECTOR
 __interrupt void Port_1(void)
@@ -73,4 +73,4 @@ __interrupt void Port_1(void)
   move_body_backwards();
 //P1OUT ^= (MOTOR_LEFT_FORWARDS + MOTOR_RIGHT_FORWARDS); // P1.0 = toggle
 P1IFG &= ~BUTTON; // P1.3 IFG cleared
-}
+}*/ 

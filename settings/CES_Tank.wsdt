@@ -73,8 +73,8 @@
           <SelEnd>0</SelEnd>
           <XPos2>0</XPos2>
           <YPos2>0</YPos2>
-          <SelStart2>109</SelStart2>
-          <SelEnd2>109</SelEnd2>
+          <SelStart2>336</SelStart2>
+          <SelEnd2>336</SelEnd2>
         </Tab>
         <Tab>
           <Factory>TextEditor</Factory>
@@ -85,8 +85,8 @@
           <SelEnd>0</SelEnd>
           <XPos2>0</XPos2>
           <YPos2>0</YPos2>
-          <SelStart2>369</SelStart2>
-          <SelEnd2>369</SelEnd2>
+          <SelStart2>0</SelStart2>
+          <SelEnd2>0</SelEnd2>
         </Tab>
         <Tab>
           <Factory>TextEditor</Factory>
@@ -96,10 +96,11 @@
           <SelStart>0</SelStart>
           <SelEnd>0</SelEnd>
           <XPos2>0</XPos2>
-          <YPos2>46</YPos2>
-          <SelStart2>2032</SelStart2>
-          <SelEnd2>2032</SelEnd2>
+          <YPos2>0</YPos2>
+          <SelStart2>44</SelStart2>
+          <SelEnd2>44</SelEnd2>
         </Tab>
+        <ActiveTab>2</ActiveTab>
         <Tab>
           <Factory>TextEditor</Factory>
           <Filename>$WS_DIR$\shooting.c</Filename>
@@ -108,11 +109,10 @@
           <SelStart>0</SelStart>
           <SelEnd>0</SelEnd>
           <XPos2>0</XPos2>
-          <YPos2>114</YPos2>
-          <SelStart2>3978</SelStart2>
-          <SelEnd2>3978</SelEnd2>
+          <YPos2>98</YPos2>
+          <SelStart2>3085</SelStart2>
+          <SelEnd2>3107</SelEnd2>
         </Tab>
-        <ActiveTab>3</ActiveTab>
         <Tab>
           <Factory>TextEditor</Factory>
           <Filename>$WS_DIR$\turret_movement.c</Filename>
@@ -378,6 +378,30 @@
         <Row58>
           <Sizes/>
         </Row58>
+        <Row59>
+          <Sizes/>
+        </Row59>
+        <Row60>
+          <Sizes/>
+        </Row60>
+        <Row61>
+          <Sizes/>
+        </Row61>
+        <Row62>
+          <Sizes/>
+        </Row62>
+        <Row63>
+          <Sizes/>
+        </Row63>
+        <Row64>
+          <Sizes/>
+        </Row64>
+        <Row65>
+          <Sizes/>
+        </Row65>
+        <Row66>
+          <Sizes/>
+        </Row66>
       </Top>
       <Left>
         <Row0>
