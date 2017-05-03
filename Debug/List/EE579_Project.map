@@ -2,7 +2,7 @@
 #                                                                              #
 #      IAR Universal Linker V6.4.6.89                                          #
 #                                                                              #
-#           Link time     =  03/May/2017  11:29:44                             #
+#           Link time     =  03/May/2017  11:49:16                             #
 #           Target CPU    =  MSP430                                            #
 #           List file     =  C:\Users\Robbie\Documents\EE579\autotank\Debug\Li #
 #                            st\EE579_Project.map                              #
@@ -183,7 +183,7 @@ DATA16_AN
            CALBC1_8MHZ             10FD 
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: C00C - C061 (0x56 bytes), align: 1
+  Relative segment, address: C00C - C03B (0x30 bytes), align: 1
   Segment part 11.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
@@ -197,11 +197,11 @@ DATA16_AN
   SEGMENTS IN THE MODULE
   ======================
 <CODE> 1 (was CODE)
-  Relative segment, address: C07C - C07D (0x2 bytes), align: 1
+  Relative segment, address: C056 - C057 (0x2 bytes), align: 1
   Segment part 2.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           __DebugBreak            C07C            __exit (?__exit)
+           __DebugBreak            C056            __exit (?__exit)
 
     -------------------------------------------------------------------------
   LIBRARY MODULE, NAME : ?__exit
@@ -209,11 +209,11 @@ DATA16_AN
   SEGMENTS IN THE MODULE
   ======================
 <CODE> 1 (was CODE)
-  Relative segment, address: C062 - C073 (0x12 bytes), align: 1
+  Relative segment, address: C03C - C04D (0x12 bytes), align: 1
   Segment part 2.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           __exit                  C062            Segment part 6 (?_exit)
+           __exit                  C03C            Segment part 6 (?_exit)
                                                    _exit (?_exit)
                calls direct
 
@@ -223,14 +223,14 @@ DATA16_AN
   SEGMENTS IN THE MODULE
   ======================
 <CODE> 1 (was CODE)
-  Relative segment, address: C074, align: 1
+  Relative segment, address: C04E, align: 1
   Segment part 0.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           _exit                   C074            exit (?exit)
+           _exit                   C04E            exit (?exit)
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: C074 - C077 (0x4 bytes), align: 1
+  Relative segment, address: C04E - C051 (0x4 bytes), align: 1
   Segment part 6.             Intra module refs:   _exit
 
     -------------------------------------------------------------------------
@@ -277,11 +277,11 @@ RESET
   SEGMENTS IN THE MODULE
   ======================
 <CODE> 1 (was CODE)
-  Relative segment, address: C078 - C07B (0x4 bytes), align: 1
+  Relative segment, address: C052 - C055 (0x4 bytes), align: 1
   Segment part 2.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           exit                    C078            Segment part 18 (?cstart)
+           exit                    C052            Segment part 18 (?cstart)
                calls direct
 
 
@@ -304,7 +304,7 @@ DATA16_AN                              0021 - 0022               2   rel    0
 CSTACK                                 03B0 - 03FF              50   rel    1
 DATA16_AN                              10FC - 10FD               2   rel    0
 CSTART                                 C000 - C00B               C   rel    1
-<CODE> 1                               C00C - C07D              72   rel    1
+<CODE> 1                               C00C - C057              4C   rel    1
 RESET                                  FFFE - FFFF               2   rel    1
 
                 ****************************************
@@ -313,8 +313,8 @@ RESET                                  FFFE - FFFF               2   rel    1
                 *                                      *
                 ****************************************
 
- 128 bytes of CODE memory
-  80 bytes of DATA memory (+ 10 absolute )
+ 90 bytes of CODE memory
+ 80 bytes of DATA memory (+ 10 absolute )
 
 Errors: none
 Warnings: none
