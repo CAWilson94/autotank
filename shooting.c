@@ -91,14 +91,14 @@ void pwm_output()
     timerCount++;              /* not been 5 seconds yet, add to count*/
   }
 }
-
+/*
 // Timer A0 interrupt service routine
 #pragma vector=TIMER0_A0_VECTOR
 __interrupt void Timer_A (void)
 {  
   pwm_output();
 
-}
+}*/
 
 // Shoot every five seconds
 void shoot_5_sec_interval()

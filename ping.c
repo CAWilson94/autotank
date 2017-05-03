@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <intrinsics.h>
 #include <msp430.h>
-
+//#include "movement.h"
 /*int main( void )
 {
   // Stop watchdog timer to prevent time out reset
@@ -83,12 +83,12 @@ __interrupt void Port_1(void)
         P1IFG &= ~echo_three;
 	}
 }
-
+*/
 #pragma vector=TIMER0_A0_VECTOR
 __interrupt void Timer_A (void)
 {
   miliseconds++;
 }
-*/
+
 	
 

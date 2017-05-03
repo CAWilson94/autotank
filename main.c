@@ -6,8 +6,8 @@
 #include "ping.h"
 #include "ir_sense.h"
 
-#include "shooting.h"
-#include "turret_movement.h"
+//#include "shooting.h"
+//#include "turret_movement.h"
 /*
 int main( void )
 {

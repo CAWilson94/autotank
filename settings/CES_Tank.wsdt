@@ -73,8 +73,8 @@
           <SelEnd>0</SelEnd>
           <XPos2>0</XPos2>
           <YPos2>0</YPos2>
-          <SelStart2>70</SelStart2>
-          <SelEnd2>70</SelEnd2>
+          <SelStart2>139</SelStart2>
+          <SelEnd2>139</SelEnd2>
         </Tab>
         <ActiveTab>0</ActiveTab>
         <Tab>
@@ -109,9 +109,9 @@
           <SelStart>0</SelStart>
           <SelEnd>0</SelEnd>
           <XPos2>0</XPos2>
-          <YPos2>104</YPos2>
-          <SelStart2>3468</SelStart2>
-          <SelEnd2>3468</SelEnd2>
+          <YPos2>86</YPos2>
+          <SelStart2>3051</SelStart2>
+          <SelEnd2>3051</SelEnd2>
         </Tab>
         <Tab>
           <Factory>TextEditor</Factory>
@@ -169,9 +169,9 @@
           <SelStart>0</SelStart>
           <SelEnd>0</SelEnd>
           <XPos2>0</XPos2>
-          <YPos2>20</YPos2>
-          <SelStart2>305</SelStart2>
-          <SelEnd2>305</SelEnd2>
+          <YPos2>0</YPos2>
+          <SelStart2>68</SelStart2>
+          <SelEnd2>68</SelEnd2>
         </Tab>
         <Tab>
           <Factory>TextEditor</Factory>
@@ -366,12 +366,6 @@
         <Row54>
           <Sizes/>
         </Row54>
-        <Row55>
-          <Sizes/>
-        </Row55>
-        <Row56>
-          <Sizes/>
-        </Row56>
       </Top>
       <Left>
         <Row0>

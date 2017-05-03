@@ -90,11 +90,11 @@
       <inputs>
         <tool>
           <name>BICOMP</name>
-          <file> 5 13 1 2 7 8 3 19 10 12 9 4 6 11 36 49 33 46 39</file>
+          <file> 5 13 1 2 7 8 3 19 10 12 9 4 6 11 49 33</file>
         </tool>
         <tool>
           <name>ICC430</name>
-          <file> 11 5 10 9 13 3 8 4 7 12 19 2 6 1 36 33 46 39</file>
+          <file> 11 5 10 9 13 3 8 4 7 12 19 2 6 1 49 33</file>
         </tool>
       </inputs>
     </file>
