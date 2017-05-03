@@ -25,7 +25,7 @@ if not "%~1" == "" goto debugFile
 
 @echo on 
 
-"C:\Program Files (x86)\IAR Systems\Embedded Workbench 7.4\common\bin\cspybat" -f "C:\Users\charl\autotank\settings\CES_Tank.Debug.general.xcl" --backend -f "C:\Users\charl\autotank\settings\CES_Tank.Debug.driver.xcl" 
+"C:\Program Files (x86)\IAR Systems\Embedded Workbench 7.4\common\bin\cspybat" -f "C:\Users\Robbie\Documents\EE579\autotank\settings\CES_Tank.Debug.general.xcl" --backend -f "C:\Users\Robbie\Documents\EE579\autotank\settings\CES_Tank.Debug.driver.xcl" 
 
 @echo off 
 goto end 
@@ -34,7 +34,7 @@ goto end
 
 @echo on 
 
-"C:\Program Files (x86)\IAR Systems\Embedded Workbench 7.4\common\bin\cspybat" -f "C:\Users\charl\autotank\settings\CES_Tank.Debug.general.xcl" "--debug_file=%~1" --backend -f "C:\Users\charl\autotank\settings\CES_Tank.Debug.driver.xcl" 
+"C:\Program Files (x86)\IAR Systems\Embedded Workbench 7.4\common\bin\cspybat" -f "C:\Users\Robbie\Documents\EE579\autotank\settings\CES_Tank.Debug.general.xcl" "--debug_file=%~1" --backend -f "C:\Users\Robbie\Documents\EE579\autotank\settings\CES_Tank.Debug.driver.xcl" 
 
 @echo off 
 :end
