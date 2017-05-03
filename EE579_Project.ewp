@@ -808,7 +808,7 @@
         </option>
         <option>
           <name>XclFile</name>
-          <state>$TOOLKIT_DIR$\config\linker\lnk430f149.xcl</state>
+          <state>$TOOLKIT_DIR$\config\linker\lnk430g2553.xcl</state>
         </option>
         <option>
           <name>XclFileSlave</name>
@@ -2260,6 +2260,12 @@
   </configuration>
   <file>
     <name>$PROJ_DIR$\main.c</name>
+  </file>
+  <file>
+    <name>$PROJ_DIR$\shooting.c</name>
+  </file>
+  <file>
+    <name>$PROJ_DIR$\shooting.h</name>
   </file>
 </project>
 

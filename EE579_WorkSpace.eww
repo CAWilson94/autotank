@@ -4,6 +4,9 @@
   <project>
     <path>$WS_DIR$\EE579_Project.ewp</path>
   </project>
+  <project>
+    <path>$WS_DIR$\..\..\Desktop\waves.ewp</path>
+  </project>
   <batchBuild/>
 </workspace>
 
