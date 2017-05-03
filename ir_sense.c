@@ -19,12 +19,12 @@ void ir_run(){
   if(P2IN == 0x01) //  IF IR IS HIGH
   {  
     P1OUT |= BIT0;
- // __delay_cycles(1000000);//GIVE SOME DELAY
+  __delay_cycles(1000000);//GIVE SOME DELAY
   }
   else
   {
     P1OUT &= ~BIT0;
- // __delay_cycles(1000000); // GIVE SOME DELAY
+  __delay_cycles(1000000); // GIVE SOME DELAY
   }
   }
 }

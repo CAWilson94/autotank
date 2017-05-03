@@ -7,6 +7,10 @@ int main(void)
 
 {
   WDTCTL = WDTPW + WDTHOLD;   //Stop WDT
+  ir_init();
+  ir_run();
+  while(1){
+  }
 }
 
  
