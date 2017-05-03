@@ -23,6 +23,10 @@
         <ColumnWidth3>73</ColumnWidth3>
       </Build>
       <TerminalIO/>
+      <Debug-Log>
+        <ColumnWidth0>20</ColumnWidth0>
+        <ColumnWidth1>1477</ColumnWidth1>
+      </Debug-Log>
     </Static>
     <Windows>
       <Wnd2>
@@ -48,6 +52,12 @@
             <Factory>Build</Factory>
             <Session/>
           </Tab>
+          <Tab>
+            <Identity>TabID-22438-31992</Identity>
+            <TabName>Debug Log</TabName>
+            <Factory>Debug-Log</Factory>
+            <Session/>
+          </Tab>
         </Tabs>
         <SelectedTab>0</SelectedTab>
       </Wnd3>
@@ -63,8 +73,8 @@
           <SelEnd>0</SelEnd>
           <XPos2>0</XPos2>
           <YPos2>0</YPos2>
-          <SelStart2>291</SelStart2>
-          <SelEnd2>291</SelEnd2>
+          <SelStart2>70</SelStart2>
+          <SelEnd2>70</SelEnd2>
         </Tab>
         <ActiveTab>0</ActiveTab>
         <Tab>
@@ -284,6 +294,84 @@
         <Row30>
           <Sizes/>
         </Row30>
+        <Row31>
+          <Sizes/>
+        </Row31>
+        <Row32>
+          <Sizes/>
+        </Row32>
+        <Row33>
+          <Sizes/>
+        </Row33>
+        <Row34>
+          <Sizes/>
+        </Row34>
+        <Row35>
+          <Sizes/>
+        </Row35>
+        <Row36>
+          <Sizes/>
+        </Row36>
+        <Row37>
+          <Sizes/>
+        </Row37>
+        <Row38>
+          <Sizes/>
+        </Row38>
+        <Row39>
+          <Sizes/>
+        </Row39>
+        <Row40>
+          <Sizes/>
+        </Row40>
+        <Row41>
+          <Sizes/>
+        </Row41>
+        <Row42>
+          <Sizes/>
+        </Row42>
+        <Row43>
+          <Sizes/>
+        </Row43>
+        <Row44>
+          <Sizes/>
+        </Row44>
+        <Row45>
+          <Sizes/>
+        </Row45>
+        <Row46>
+          <Sizes/>
+        </Row46>
+        <Row47>
+          <Sizes/>
+        </Row47>
+        <Row48>
+          <Sizes/>
+        </Row48>
+        <Row49>
+          <Sizes/>
+        </Row49>
+        <Row50>
+          <Sizes/>
+        </Row50>
+        <Row51>
+          <Sizes/>
+        </Row51>
+        <Row52>
+          <Sizes/>
+        </Row52>
+        <Row53>
+          <Sizes/>
+        </Row53>
+        <Row54>
+          <Sizes/>
+        </Row54>
+        <Row55>
+          <Sizes/>
+        </Row55>
+        <Row56>
+          <Sizes/>
+        </Row56>
       </Top>
       <Left>
         <Row0>
