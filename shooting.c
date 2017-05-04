@@ -162,12 +162,12 @@ void counter_attack()
   P1DIR &= ~(BIT1 + BIT2); //set P1.3 (Switch 2) as input
   P1OUT &= ~(BIT3 + BIT4); //turn led off
  // P1REN |= BIT5; 
-  //P1IE |= (BIT1 + BIT2);   /* Set Port 1 interrupt enable reg */
-  //P1IES &= ~(BIT1 + BIT2); /* Set INT1 interrupt edge select reg */
-  //P1IFG &= ~(BIT1 + BIT2); //clear interrupt
+  P1IE |= (BIT1 + BIT2);   /* Set Port 1 interrupt enable reg */
+  P1IES &= ~(BIT1 + BIT2); /* Set INT1 interrupt edge select reg */
+  P1IFG &= ~(BIT1 + BIT2); //clear interrupt
  // __enable_interrupt();
 }
-/*
+
 #pragma vector=PORT1_VECTOR
 __interrupt void sw_int(void)
 {
@@ -178,4 +178,4 @@ __interrupt void sw_int(void)
     move_turret=2;
   }
   P1IFG &= ~(BIT1 + BIT2);
-}*/
+}
