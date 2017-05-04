@@ -11,9 +11,6 @@ Timer
 */
 
 #define INTERRUPT BIT2
-//#define LED_OUT P1OUT /* Port 1 output */
-//#define LED_DIR P1DIR /* Port 1 direction */ 
-//#define LED_SEL P1SEL /* Port 1 select*/ 
 #define A0 11
 #define A1 21
 #define PAUSE 92
@@ -100,18 +97,6 @@ void pwm_output()
 __interrupt void Timer_A (void)
 {  
   pwm_output();
-  //turret_timer++;
-  /*if (move_turret == 1 && turret_timer <4){
-    P1OUT |= BIT0;
-    P1OUT &= ~BIT1;
-  //  move_turret=0;
-  }
-  else {
-    P1OUT |= BIT0;
-    P1OUT |= BIT1;
-    move_turret = 0;
-  }*/
-  
 }
 
 // Shoot every five seconds
