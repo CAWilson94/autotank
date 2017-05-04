@@ -15,13 +15,7 @@ void ping()
   CCR0 = 1000;				    // 1ms at 1mhz
   TACTL = TASSEL_2 + MC_1;                  // SMCLK, upmode
 
-  //P1IFG  = BIT0;			    //clear all interrupt flags
-      P1DIR |= ( BIT7);
-     P2DIR |= (BIT3+ BIT4 + BIT5);
-     P2OUT |= (BIT4);
-     P2OUT &= ~(BIT5);
-     P2OUT |= BIT3;
-     P1OUT &= ~BIT7;
+  P1IFG  = BIT0;			    //clear all interrupt flags
     P1DIR |= BIT0;                            // P1.0 as output for LED
     P1OUT &= ~BIT0;                           // turn LED off
   
@@ -31,7 +25,7 @@ void ping()
  void run_ping(){
 	P1IE &= ~BIT6;			// disable interupt
 	P1DIR |= BIT5; 			// trigger pin as output
-   P2DIR |= (BIT4 + BIT5);
+   //P2DIR |= (BIT4 + BIT5);
 	P1OUT |= BIT5;			// generate pulse
 	__delay_cycles(10);             // for 10us
 	P1OUT &= ~BIT5;                 // stop pulse
@@ -56,9 +50,12 @@ void ping()
     return move;
 }
 
-void echo_ping_one()
+
+#pragma vector=PORT1_VECTOR
+__interrupt void Port_1(void)
 {
-	 if(!(P1IES&BIT6)) // is this the rising edge?
+  if(P1IFG&BIT6){  //is there interrupt pending?{
+    if(!(P1IES&BIT6)) // is this the rising edge?
           {			
             TACTL|=TACLR;   // clears timer A
             miliseconds = 0;
@@ -70,31 +67,6 @@ void echo_ping_one()
 
           }
 	P1IFG &= ~BIT6;				//clear flag
-}
-
-/*
-void echo_ping_two()
-{
-	 if(!(P1IES&BIT4)) // is this the rising edge?
-          {			
-            TACTL|=TACLR;   // clears timer A
-            miliseconds = 0;
-            P1IES |= BIT4;  //falling edge
-          }
-          else
-          {
-            sensor = (long)miliseconds*1000 + (long)TAR;	//calculating ECHO lenght
-
-          }
-	P1IFG &= ~BIT4;				//clear flag
-}
-*/
-
-#pragma vector=PORT1_VECTOR
-__interrupt void Port_1(void)
-{
-  if(P1IFG&BIT6){  //is there interrupt pending?{
-    echo_ping_one();
   }
   //else {
   //  echo_ping_two();

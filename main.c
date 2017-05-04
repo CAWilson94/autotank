@@ -23,7 +23,7 @@ int main( void )
   __enable_interrupt();
   for(;;){
     if (get_move_value() == 0){
-     P2OUT |= (BIT3);
+  P2OUT |= (BIT3);
      P1OUT &= ~BIT7;
     P2OUT |= (BIT4);
    P2OUT &= ~(BIT5);
@@ -31,7 +31,7 @@ int main( void )
     
   P2OUT |= (BIT3 + BIT4 + BIT5);
      P1OUT |= BIT7;
-    }//   ir_run();    
+    } //   ir_run();    
   run_ping();
        // __delay_cycles(1000000);          // delay for 30ms (after this time echo times out if there is no object detected)
 
