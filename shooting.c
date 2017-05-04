@@ -134,25 +134,6 @@ void shoot_5_sec_interval()
     {
       shooting = 1; 
     } 
-     if ((P1IN&BIT1) == 1){
-        P1OUT |= BIT3;
-        P1OUT &= ~BIT4;
-      }
-      else if((P1IN&BIT2 ) == 1) {
-        P1OUT |= BIT4;
-        P1OUT &= ~BIT3;
-
-      }
-    
-    /*if (move_turret == 1) {
-    P1OUT |= BIT0;
-    P1OUT &= ~BIT1;
-    }
-    else if(timerCount > 8){
-      P1OUT |= BIT0;
-      P1OUT |= BIT1;
-      move_turret = 0;
-    }*/
   } 
 }
 
