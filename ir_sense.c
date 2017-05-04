@@ -38,13 +38,13 @@ void ir_run(){
   if(((!(P2IN&2) == 0)&& (!(P2IN&4) == 0)) && fired ==0) {
      P1OUT &= ~(BIT0 + BIT1 + BIT2 +BIT3 + BIT4);
   }
-  
-  if((P2IN&2 ) ==0 && fired == 0){
+  else if((P2IN&2 ) ==0 && fired == 0){
     P1OUT |= BIT0 + BIT1;
     TA0CCTL0 |= CCIE;	
     fired = 1;
+    
   }
-  if(((P2IN&4) ==0 ) && fired == 0){
+  else if(((P2IN&4) ==0 ) && fired == 0){
     P1OUT |= BIT0 + BIT2;
     TA0CCTL0 |= CCIE;	
     fired = 1;
