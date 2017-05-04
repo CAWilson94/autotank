@@ -33,29 +33,35 @@ void ir_run(){
     P1OUT |= BIT0 + BIT5;
     TA0CCTL0 |= CCIE;	
     fired = 1;
-  }
   */
-  if((P2IN&BIT1 ==1 ) && fired == 0){
+  
+  if(((!(P2IN&2) == 0)&& (!(P2IN&4) == 0)) && fired ==0) {
+     P1OUT &= ~(BIT0 + BIT1 + BIT2 +BIT3 + BIT4);
+  }
+  
+  if((P2IN&2 ) ==0 && fired == 0){
     P1OUT |= BIT0 + BIT1;
-    TA0CCTL0 |= CCIE;	/* Interrupts on Timer:"capture/compare interrupt enable*/
+    TA0CCTL0 |= CCIE;	
     fired = 1;
   }
-  if((P2IN&BIT2 ==1 ) && fired == 0){
-  P1OUT |= BIT0 + BIT2;
-    TA0CCTL0 |= CCIE;	/* Interrupts on Timer:"capture/compare interrupt enable*/
-    fired = 1;
-  }
-  if((P2IN&BIT3 ==1 ) && fired == 0){
-  P1OUT |= BIT0 + BIT3;
-    TA0CCTL0 |= CCIE;	/* Interrupts on Timer:"capture/compare interrupt enable*/
-    fired = 1;
-  }
-  if((P2IN&BIT4 ==1 ) && fired == 0){
-  P1OUT |= BIT0 + BIT4;
-    TA0CCTL0 |= CCIE;	/* Interrupts on Timer:"capture/compare interrupt enable*/
+  if(((P2IN&4) ==0 ) && fired == 0){
+    P1OUT |= BIT0 + BIT2;
+    TA0CCTL0 |= CCIE;	
     fired = 1;
   }
   
+  /*
+  else if(!(P2IN&BIT3 ==1 ) && fired == 0){
+  P1OUT |= BIT0 + BIT3;
+    TA0CCTL0 |= CCIE; 
+    fired = 1;
+  }
+  else if(!(P2IN&BIT4 ==1 ) && fired == 0){
+  P1OUT |= BIT0 + BIT4;
+    TA0CCTL0 |= CCIE;	
+    fired = 1;
+  }
+  */
 }
 
 // Timer A0 interrupt service routine
@@ -67,6 +73,7 @@ __interrupt void Timer_A (void)
   if(timercount>4)
   {
     TA0CCTL0 &= ~CCIE;
+    P1OUT &= ~(BIT0 + BIT1 + BIT2 +BIT3 + BIT4);
     timercount = 0;
     fired = 0;
   }

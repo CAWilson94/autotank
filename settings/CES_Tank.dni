@@ -38,7 +38,7 @@ ShowSource=1
 [Simulator]
 Freq=1000000
 [DebugChecksum]
-Checksum=-768302846
+Checksum=806564543
 [EEM State Storage]
 Buffer=BAAAAAAADAAAAAAAAAAAAAAA
 [EEM Sequencer]
