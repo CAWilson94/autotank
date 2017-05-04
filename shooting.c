@@ -11,9 +11,9 @@ Timer
 */
 
 #define INTERRUPT BIT2
-#define LED_OUT P1OUT /* Port 1 output */
-#define LED_DIR P1DIR /* Port 1 direction */ 
-#define LED_SEL P1SEL /* Port 1 select*/ 
+//#define LED_OUT P1OUT /* Port 1 output */
+//#define LED_DIR P1DIR /* Port 1 direction */ 
+//#define LED_SEL P1SEL /* Port 1 select*/ 
 #define A0 11
 #define A1 21
 #define PAUSE 92
@@ -27,6 +27,7 @@ int turret_timer = 0;
 unsigned int flag = 0;
 unsigned int shooting = 0;
 unsigned int timerCount = 0;
+int oldCount = 0;
 
            // A1,  X, A1, A0, A1, A0, A1, A0, A1, A0, A1, A0, A1, A0, A1, A0 
 int shot[] = {A1,PAUSE,A1,A0,A1,A0,A1,A0,A1,A0,A1,A0,A1,A0,
@@ -128,11 +129,22 @@ void shoot_5_sec_interval()
   __enable_interrupt();/* Loop and wait for interrupt */
   while(1)
   {
+    
     if (flag==1)
     {
       shooting = 1; 
     } 
-    if (move_turret == 1) {
+     if ((P1IN&BIT1) == 1){
+        P1OUT |= BIT3;
+        P1OUT &= ~BIT4;
+      }
+      else if((P1IN&BIT2 ) == 1) {
+        P1OUT |= BIT4;
+        P1OUT &= ~BIT3;
+
+      }
+    
+    /*if (move_turret == 1) {
     P1OUT |= BIT0;
     P1OUT &= ~BIT1;
     }
@@ -140,24 +152,30 @@ void shoot_5_sec_interval()
       P1OUT |= BIT0;
       P1OUT |= BIT1;
       move_turret = 0;
-    }
+    }*/
   } 
 }
 
 void counter_attack()
 {
-  P1DIR |= BIT0 + BIT1;   // set P1DIR with P0 to high (1)
-  P1DIR &= ~BIT5; //set P1.3 (Switch 2) as input
-  P1OUT &= ~(BIT0 + BIT1); //turn led off
+  P1DIR |= BIT3 + BIT4;   // set P1DIR with P0 to high (1)
+  P1DIR &= ~(BIT1 + BIT2); //set P1.3 (Switch 2) as input
+  P1OUT &= ~(BIT3 + BIT4); //turn led off
  // P1REN |= BIT5; 
-  P1IE |= BIT5;   /* Set Port 1 interrupt enable reg */
-  P1IES &= ~BIT5; /* Set INT1 interrupt edge select reg */
-  P1IFG &= ~BIT5; //clear interrupt
+  //P1IE |= (BIT1 + BIT2);   /* Set Port 1 interrupt enable reg */
+  //P1IES &= ~(BIT1 + BIT2); /* Set INT1 interrupt edge select reg */
+  //P1IFG &= ~(BIT1 + BIT2); //clear interrupt
  // __enable_interrupt();
 }
+/*
 #pragma vector=PORT1_VECTOR
 __interrupt void sw_int(void)
 {
-  move_turret = 1;
-  P1IFG &= ~BIT5;
-}
+  if ((P1IN&BIT1) == 1){
+   move_turret = 1;
+  }
+  else if ((P1IN&BIT2) == 1){
+    move_turret=2;
+  }
+  P1IFG &= ~(BIT1 + BIT2);
+}*/
