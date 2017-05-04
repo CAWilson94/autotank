@@ -38,10 +38,16 @@ void ping()
         if(distance < 20 && distance != 0) {
           P1OUT |= BIT0;  //turning LED on if distance is less than 20cm and if distance isn't 0.
             move = 1;
+            P2OUT |= (BIT3 + BIT4 + BIT5);
+            P1OUT |= BIT7;
         }
       else { 
-  P1OUT &= ~BIT0;
-  move = 0;
+            P1OUT &= ~BIT0;
+            move = 0;
+            P2OUT |= (BIT3);
+            P1OUT &= ~BIT7;
+            P2OUT |= (BIT5);
+            P2OUT &= ~(BIT4);
 }
  
 }
