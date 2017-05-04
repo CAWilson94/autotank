@@ -2,7 +2,7 @@
 #                                                                              #
 #      IAR Universal Linker V6.4.6.89                                          #
 #                                                                              #
-#           Link time     =  04/May/2017  14:39:57                             #
+#           Link time     =  04/May/2017  15:22:11                             #
 #           Target CPU    =  MSP430                                            #
 #           List file     =  C:\Users\Robbie\Documents\EE579\autotank\Debug\Li #
 #                            st\CES_Tank.map                                   #
@@ -226,26 +226,34 @@ DATA16_Z
            =====                   =======         ======
            fired                   0202 
     -------------------------------------------------------------------------
-<CODE> 1 (was CODE)
-  Relative segment, address: C06E - C0A5 (0x38 bytes), align: 1
-  Segment part 17.
+DATA16_Z
+  Relative segment, address: 0204 - 0205 (0x2 bytes), align: 1
+  Segment part 17.            Intra module refs:   Timer_A
+                                                   ir_run
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           ir_init                 C06E            main (main)
+           moveturret              0204 
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: C018 - C06D (0x56 bytes), align: 1
+  Relative segment, address: C0AA - C0E1 (0x38 bytes), align: 1
   Segment part 18.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ir_init                 C0AA            main (main)
+    -------------------------------------------------------------------------
+<CODE> 1 (was CODE)
+  Relative segment, address: C018 - C069 (0x52 bytes), align: 1
+  Segment part 19.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            ir_run                  C018            main (main)
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: C0A6 - C0C7 (0x22 bytes), align: 1
-  Segment part 19.            Intra module refs:   Timer_A::??INTVEC 18
+  Relative segment, address: C06A - C0A9 (0x40 bytes), align: 1
+  Segment part 20.            Intra module refs:   Timer_A::??INTVEC 18
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Timer_A                 C0A6 
+           Timer_A                 C06A 
                interrupt function
     -------------------------------------------------------------------------
 INTVEC
@@ -263,11 +271,11 @@ INTVEC
   SEGMENTS IN THE MODULE
   ======================
 <CODE> 1 (was CODE)
-  Relative segment, address: C0DA - C0EB (0x12 bytes), align: 1
+  Relative segment, address: C0F4 - C105 (0x12 bytes), align: 1
   Segment part 3.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           main                    C0DA            Segment part 18 (?cstart)
+           main                    C0F4            Segment part 18 (?cstart)
                calls direct
 
     *************************************************************************
@@ -320,11 +328,11 @@ DATA16_AN
   SEGMENTS IN THE MODULE
   ======================
 <CODE> 1 (was CODE)
-  Relative segment, address: C104 - C105 (0x2 bytes), align: 1
+  Relative segment, address: C11E - C11F (0x2 bytes), align: 1
   Segment part 2.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           __DebugBreak            C104            __exit (?__exit)
+           __DebugBreak            C11E            __exit (?__exit)
 
     -------------------------------------------------------------------------
   LIBRARY MODULE, NAME : ?__exit
@@ -332,11 +340,11 @@ DATA16_AN
   SEGMENTS IN THE MODULE
   ======================
 <CODE> 1 (was CODE)
-  Relative segment, address: C0C8 - C0D9 (0x12 bytes), align: 1
+  Relative segment, address: C0E2 - C0F3 (0x12 bytes), align: 1
   Segment part 2.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           __exit                  C0C8            Segment part 6 (?_exit)
+           __exit                  C0E2            Segment part 6 (?_exit)
                                                    _exit (?_exit)
                calls direct
 
@@ -346,14 +354,14 @@ DATA16_AN
   SEGMENTS IN THE MODULE
   ======================
 <CODE> 1 (was CODE)
-  Relative segment, address: C100, align: 1
+  Relative segment, address: C11A, align: 1
   Segment part 0.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           _exit                   C100            exit (?exit)
+           _exit                   C11A            exit (?exit)
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: C100 - C103 (0x4 bytes), align: 1
+  Relative segment, address: C11A - C11D (0x4 bytes), align: 1
   Segment part 6.             Intra module refs:   _exit
 
     -------------------------------------------------------------------------
@@ -366,7 +374,7 @@ CSTACK
   Segment part 1.
     -------------------------------------------------------------------------
 DATA16_Z
-  Relative segment, address: 0204, align: 1
+  Relative segment, address: 0206, align: 1
   Segment part 2.
     -------------------------------------------------------------------------
 CSTART
@@ -384,6 +392,7 @@ CSTART
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            ?cstart_init_zero       C004            fired (ir_sense)
+                                                   moveturret (ir_sense)
                                                    timercount (ir_sense)
     -------------------------------------------------------------------------
 CSTART
@@ -412,11 +421,11 @@ RESET
   SEGMENTS IN THE MODULE
   ======================
 <CODE> 1 (was CODE)
-  Relative segment, address: C0FC - C0FF (0x4 bytes), align: 1
+  Relative segment, address: C116 - C119 (0x4 bytes), align: 1
   Segment part 2.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           exit                    C0FC            Segment part 18 (?cstart)
+           exit                    C116            Segment part 18 (?cstart)
                calls direct
 
     -------------------------------------------------------------------------
@@ -425,11 +434,11 @@ RESET
   SEGMENTS IN THE MODULE
   ======================
 <CODE> 1 (was CODE)
-  Relative segment, address: C0EC - C0FB (0x10 bytes), align: 1
+  Relative segment, address: C106 - C115 (0x10 bytes), align: 1
   Segment part 2.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           __data16_memzero        C0EC            ?cstart_init_zero (?cstart)
+           __data16_memzero        C106            ?cstart_init_zero (?cstart)
 
 
 
@@ -451,11 +460,11 @@ DATA16_AN                              0021 - 0025               5   rel    0
                                        0160 - 0163               4 
                                        0172 - 0173               2 
 DATA16_I                                  0200                       dse    0
-DATA16_Z                               0200 - 0203               4   rel    1
+DATA16_Z                               0200 - 0205               6   rel    1
 CSTACK                                 03B0 - 03FF              50   rel    1
 DATA16_AN                              10FC - 10FF               4   rel    0
 CSTART                                 C000 - C017              18   rel    1
-<CODE> 1                               C018 - C105              EE   rel    1
+<CODE> 1                               C018 - C11F             108   rel    1
 INTVEC                                 FFE0 - FFF3              14   com    1
 RESET                                  FFFE - FFFF               2   rel    1
 
@@ -465,8 +474,8 @@ RESET                                  FFFE - FFFF               2   rel    1
                 *                                      *
                 ****************************************
 
- 284 bytes of CODE memory
-  84 bytes of DATA memory (+ 21 absolute )
+ 310 bytes of CODE memory
+  86 bytes of DATA memory (+ 21 absolute )
 
 Errors: none
 Warnings: none

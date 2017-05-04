@@ -5,6 +5,7 @@
 
 int timercount =0;
 int fired =0;
+int moveturret =0;
 
 void ir_init(){
     WDTCTL = WDTPW + WDTHOLD;            //Stop WDT
@@ -39,13 +40,15 @@ void ir_run(){
      P1OUT &= ~(BIT0 + BIT1 + BIT2 +BIT3 + BIT4);
   }
   else if((P2IN&2 ) ==0 && fired == 0){
-    P1OUT |= BIT0 + BIT1;
+  //  P1OUT |= BIT0 + BIT1;
+    moveturret = 1;
     TA0CCTL0 |= CCIE;	
     fired = 1;
     
   }
   else if(((P2IN&4) ==0 ) && fired == 0){
-    P1OUT |= BIT0 + BIT2;
+  //  P1OUT |= BIT0 + BIT2;
+    moveturret = 2;
     TA0CCTL0 |= CCIE;	
     fired = 1;
   }
@@ -69,6 +72,16 @@ void ir_run(){
 __interrupt void Timer_A (void)
 {  
  // pwm_output();
+  
+  if (moveturret==1){
+  P1OUT |= BIT1;
+  P1OUT &= ~BIT2;
+  }
+  else if(moveturret ==2){
+  P1OUT |= BIT2;
+  P1OUT &= ~BIT1;
+  }
+  
   timercount++;
   if(timercount>4)
   {
