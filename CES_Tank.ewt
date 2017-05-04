@@ -2108,28 +2108,10 @@
     <name>$PROJ_DIR$\main.c</name>
   </file>
   <file>
-    <name>$PROJ_DIR$\movement.c</name>
-  </file>
-  <file>
-    <name>$PROJ_DIR$\movement.h</name>
-  </file>
-  <file>
     <name>$PROJ_DIR$\ping.c</name>
   </file>
   <file>
     <name>$PROJ_DIR$\ping.h</name>
-  </file>
-  <file>
-    <name>$PROJ_DIR$\shooting.c</name>
-  </file>
-  <file>
-    <name>$PROJ_DIR$\shooting.h</name>
-  </file>
-  <file>
-    <name>$PROJ_DIR$\turret_movement.c</name>
-  </file>
-  <file>
-    <name>$PROJ_DIR$\turret_movement.h</name>
   </file>
 </project>
 

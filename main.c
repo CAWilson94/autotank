@@ -2,12 +2,9 @@
 #include <stdio.h>
 #include <intrinsics.h>
 #include <msp430.h>
-//#include "movement.h"
 #include "ping.h"
 #include "ir_sense.h"
 
-//#include "shooting.h"
-//#include "turret_movement.h"
 /*
 int main( void )
 {
