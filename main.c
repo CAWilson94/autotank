@@ -16,13 +16,25 @@ int main( void )
   P1OUT |= BIT0;*/
   void main()
 {
-	WDTCTL = WDTPW + WDTHOLD;
-	/*P1DIR |= (BIT0 + BIT1 + BIT2 + BIT3);
-	P1OUT |= (BIT0 + BIT3);
-	P1OUT &= ~(BIT1 + BIT2);*/
-        ir_init();
-       __enable_interrupt();
-        for(;;){
-        ir_run();
-        }
+	
+  WDTCTL = WDTPW + WDTHOLD;
+  //  ir_init();
+  ping();
+  __enable_interrupt();
+  for(;;){
+    if (get_move_value() == 0){
+     P2OUT |= (BIT3);
+     P1OUT &= ~BIT7;
+    P2OUT |= (BIT4);
+   P2OUT &= ~(BIT5);
+   __delay_cycles(1000000);          // delay for 30ms (after this time echo times out if there is no object detected)
+    
+  P2OUT |= (BIT3 + BIT4 + BIT5);
+     P1OUT |= BIT7;
+    }//   ir_run();    
+  run_ping();
+       // __delay_cycles(1000000);          // delay for 30ms (after this time echo times out if there is no object detected)
+
+    
+  }
 }

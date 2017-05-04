@@ -8,7 +8,7 @@ int fired =0;
 int moveturret =0;
 
 void ir_init(){
-    WDTCTL = WDTPW + WDTHOLD;            //Stop WDT
+    //WDTCTL = WDTPW + WDTHOLD;            //Stop WDT
     BCSCTL1 = CALBC1_8MHZ;                     //Set DCO to 8Mhz
     DCOCTL = CALDCO_8MHZ;
     P2DIR &= ~(BIT1 + BIT2 +BIT3 + BIT4);   // IR SENSOR IS CONNECTED TO PORT2 OF BIT0
@@ -83,7 +83,7 @@ __interrupt void Timer_A (void)
   }
   
   timercount++;
-  if(timercount>4)
+  if(timercount>5)
   {
     TA0CCTL0 &= ~CCIE;
     P1OUT &= ~(BIT0 + BIT1 + BIT2 +BIT3 + BIT4);
