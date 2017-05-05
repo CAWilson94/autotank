@@ -145,7 +145,7 @@
       <inputs>
         <tool>
           <name>BICOMP</name>
-          <file> 11 48 24</file>
+          <file> 48 11 24</file>
         </tool>
         <tool>
           <name>ICC430</name>

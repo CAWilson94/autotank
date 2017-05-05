@@ -4,6 +4,8 @@ int miliseconds;
 int distance;
 long sensor;
 int move = 0;
+int turn = 0;
+int time_motor = 0;
 
 void ping()
 {
@@ -25,7 +27,6 @@ void ping()
  void run_ping(){
 	P1IE &= ~BIT6;			// disable interupt
 	P1DIR |= BIT5; 			// trigger pin as output
-   //P2DIR |= (BIT4 + BIT5);
 	P1OUT |= BIT5;			// generate pulse
 	__delay_cycles(10);             // for 10us
 	P1OUT &= ~BIT5;                 // stop pulse
@@ -34,26 +35,35 @@ void ping()
 	P1IE |= BIT6;			// enable interupt on ECHO pin
 	P1IES &= ~BIT6;			// rising edge on ECHO pin
        __delay_cycles(30000);          // delay for 30ms (after this time echo times out if there is no object detected)
-        distance = sensor/58;           // converting ECHO lenght into cm
-        if(distance < 20 && distance != 0) {
-          P1OUT |= BIT0;  //turning LED on if distance is less than 20cm and if distance isn't 0.
-            move = 1;
-            P2OUT |= (BIT3 + BIT4 + BIT5);
-            P1OUT |= BIT7;
+        distance = sensor/58;           // converting ECHO length into cm
+        if(distance < 50 && distance != 0) {
+          P1OUT |= BIT0;
+          move++;
+          time_motor = miliseconds;
+          P2OUT |= (BIT3 + BIT4 + BIT5);
+          P1OUT |= BIT7;
         }
       else { 
-            P1OUT &= ~BIT0;
-            move = 0;
-            P2OUT |= (BIT3);
-            P1OUT &= ~BIT7;
-            P2OUT |= (BIT5);
-            P2OUT &= ~(BIT4);
+          P1OUT &= ~BIT0;
+          move = 0;
+          P2OUT |= (BIT3);
+          P1OUT &= ~BIT7;
+          P2OUT |= (BIT5);
+          P2OUT &= ~(BIT4);
 }
  
 }
 
     int get_move_value(){
     return move;
+}
+
+void setNoTurns(int nTurns) {
+  turn = nTurns;
+}
+
+int getNoTurns() {
+  return turn;
 }
 
 
@@ -83,6 +93,28 @@ __interrupt void Port_1(void)
 __interrupt void Timer_A1 (void)
 {
   miliseconds++;
+  if (move > 0){
+    if (((time_motor + 1000) > miliseconds)){
+      if((time_motor + 500) < miliseconds) {
+        P2OUT |= (BIT3);
+        P1OUT &= ~BIT7;
+        P2OUT |= (BIT4);
+        P2OUT &= ~(BIT5);   
+      }
+    }
+    /*if (((time_motor + 500) > miliseconds) && ((time_motor + 1000) < miliseconds)){
+            P2OUT |= (BIT3);
+            P1OUT &= ~BIT7;
+            P2OUT |= (BIT4);
+            P2OUT &= ~(BIT5);   
+    }*/
+    else{
+      move = 0;
+      turn++;
+      P2OUT |= (BIT3 + BIT4 + BIT5);
+      P1OUT |= BIT7;
+    }
+  }
 }
 
 	

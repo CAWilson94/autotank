@@ -23,20 +23,21 @@ int main( void )
   P2DIR |= (BIT3 + BIT4 + BIT5 );
   P1DIR |= BIT7;
   __enable_interrupt();
-   __delay_cycles(16000000);    
+   __delay_cycles(5000000);    
   for(;;){
     
-  //  if (get_move_value() == 0){
+    if ((get_move_value() == 0) && getNoTurns() < 2){
     //P2OUT |= (BIT3);
     //P1OUT &= ~BIT7;
     //P2OUT |= (BIT5);
     //P2OUT &= ~(BIT4);
-   __delay_cycles(1000000);          // delay for 30ms (after this time echo times out if there is no object detected)
+   __delay_cycles(1000000);
     
   //P2OUT |= (BIT3 + BIT4 + BIT5);
   //P1OUT |= BIT7;
     //} //   ir_run();    
-  run_ping();
+   run_ping();
+    }
        // __delay_cycles(1000000);          // delay for 30ms (after this time echo times out if there is no object detected)
 
     
