@@ -18,7 +18,7 @@ int main( void )
 {
 	
   WDTCTL = WDTPW + WDTHOLD;
-  //  ir_init();
+  ir_init();
   ping();
   P2DIR |= (BIT3 + BIT4 + BIT5 );
   P1DIR |= BIT7;
