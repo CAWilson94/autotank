@@ -29,13 +29,13 @@ void ir_run(){
   }
   else if((P2IN&2 ) ==0 && fired == 0){
     moveturret = 1;
-    //TA0CCTL0 |= CCIE;	
+    TA0CCTL0 |= CCIE;	
     fired = 1;
     
   }
   else if(((P2IN&4) ==0 ) && fired == 0){
     moveturret = 2;
-    //TA0CCTL0 |= CCIE;	
+    TA0CCTL0 |= CCIE;	
     fired = 1;
   }
 }
@@ -52,29 +52,21 @@ void setNoAction(int i) {
 #pragma vector=TIMER0_A0_VECTOR
 __interrupt void Timer_A (void)
 {  
-
-  if(moveturret==0) {
-    noAction++;
-  }
-  else {
    if (moveturret==1){
   P1OUT |= BIT1;
   P1OUT &= ~BIT2;
-  noAction = 0;
   }
   else if(moveturret ==2){
   P1OUT |= BIT2;
   P1OUT &= ~BIT1;
-  noAction = 0;
   }
   
   timercount++;
   if(timercount>5)
   {
-    //TA0CCTL0 &= ~CCIE;
+    TA0CCTL0 &= ~CCIE;
     P1OUT &= ~(BIT0 + BIT1 + BIT2);
     timercount = 0;
     fired = 0;
   }  
-  }
 }

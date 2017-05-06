@@ -28,7 +28,7 @@ void init_ping()
 	P1OUT |= BIT5;			// generate pulse
 	__delay_cycles(10);             // for 10us
 	P1OUT &= ~BIT5;                 // stop pulse
-  	P1DIR &= ~BIT6;			// make pin P1.2 input (ECHO)
+  	P1DIR &= ~BIT6;			// make pin P1.6 input (ECHO)
         P1IFG = 0x00;                   // clear flag just in case anything happened before
 	P1IE |= BIT6;			// enable interupt on ECHO pin
 	P1IES &= ~BIT6;			// rising edge on ECHO pin

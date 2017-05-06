@@ -23,7 +23,7 @@
       }
     } 
     ir_run();    
-   //run_ping();
+   run_ping();
     }
    
   
